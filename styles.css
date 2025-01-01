@@ -1,0 +1,960 @@
+/* Reset basic margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General setup */
+html, body {
+  font-family: 'Poppins', sans-serif; /* Use Poppins for general text */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  
+}
+
+body {
+  background: linear-gradient(135deg, #FFF4A3, #A2D9FF); /* Diagonal Gradient from Soft Yellow to Sky Blue */
+  line-height: 1.6;
+}
+
+
+
+ h2 {
+  font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
+  color: #1A2A45; /* Navy text for headings */
+  font-size: 1.5rem; /* Larger size for prominence */
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+  border-left: 5px solid #1A2A45; /* Left border accent */
+  padding-left: 15px; /* Space between text and border */
+  text-transform: uppercase;
+  text-align: justify; /* Justify the text */
+}
+
+p {
+  color: #2F4F4F; /* Dark Slate Gray */
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400; 
+  text-align: justify; /* Justify the text */
+}
+
+
+
+  h3 {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
+    color: #4682B4; /* Steel Blue */
+    font-size: 1.25rem; /* Medium size for subheadings */
+    font-weight: 600; /* Slightly bold for emphasis */
+    margin-bottom: 15px; /* Spacing below the heading */
+    text-transform: capitalize; /* Stylish capitalization */
+    text-align: justify; /* Justify the text */
+  }
+
+  /* Styling for h4 */
+  h4 {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
+    color: #F8B800; /* Stronger Golden Yellow */
+    font-weight:600;
+    font-size: 1.2rem; /* Smaller size for less prominent subheadings */
+    margin-bottom: 10px; /* Compact spacing below */
+    text-transform: capitalize; /* Uniform look with h3 */
+    text-align: justify; /* Justify the text */
+  }
+
+
+  img {
+    filter: brightness(90%) contrast(100%) saturate(110%); /* Adjust to match your tone */
+    background-color: #f5f5f5; /* Optional light background color */
+}
+
+
+
+/* Header Section */
+header {
+  background-color: #1A2A45; /* Navy Blue */
+  color: #FFFFFF; /* White text for clarity */
+  padding: 20px 70px;
+  margin: 0;
+  position: fixed; /* Fix the position */
+  top: 0;
+  left: 0;
+  width: 100%; /* Adjust for scrollbar width */
+  z-index: 1000; /* Ensure the header stays above other content */
+
+
+}
+
+/* .nav-2 Styling */
+.nav-2 {
+  background-color: #D9A400; /* Mustard Yellow */
+  color: #1A2A45; /* Navy text for contrast */
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Default state */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  
+}
+
+/* Fixed state for .nav-2 */
+.nav-2.fixed {
+  color: #FFFFFF; /* White text */
+  position: fixed;
+  top: 0px; /* Adjust this value based on header height */
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Slightly lower than header */
+}
+
+
+
+/* Styling for active navigation links in both navbars */
+header nav .left-nav ul li a.active
+ {
+
+  color: #F8B800; /* Golden Yellow */
+  font-weight: 700; /* Make the active link text bold */
+  padding: 5px 10px; /* Optional: Add some padding to make the active link stand out */
+  transition: color 0.2s ease; /* Faster transition for color change */
+}
+
+.nav-2 ul li a.active {
+  color: #003f8e; /* Dark Blue */
+  font-weight: 800; /* Optional: Add more emphasis with bold text */
+}
+
+
+
+
+  /* Navbar container */
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  
+  /* Left-side of navbar (navigation links) */
+  header nav .left-nav {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+  }
+
+  
+  
+  header nav .left-nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center; /* Ensure list items are aligned on the same line */
+  }
+  
+  header nav .left-nav ul li {
+    margin-right: 10px; /* Adjusted margin for better spacing */
+  }
+  
+  header nav .left-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.7rem; /* Slightly smaller text size */
+    font-weight: 750; /* Make the text bold */
+    padding: 3px 8px; /* Padding around the text for better clickability */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  header nav .left-nav ul li a:hover {
+    color: #003f8e;
+  }
+  
+  /* Right-side of navbar (contact info) */
+  header nav .right-nav {
+    text-align: right;
+    color: #fff;
+  }
+
+.right-nav span {
+    margin-right: 10px; /* Space between icons */
+}
+
+
+.separator {
+
+    color: #ccc;
+    vertical-align: middle;
+    border: none;
+    box-shadow: none;
+    font-weight: 100;
+  
+}
+
+
+.right-nav {
+    line-height: 1; /* Prevent spacing issues */
+}
+
+  header nav .right-nav p {
+    margin: 0;
+    font-size: 0.8rem; /* Slightly smaller font size */
+    display: flex;
+    align-items: center;
+  }
+  
+  header nav .right-nav p a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  header nav .right-nav p a:hover {
+  color: #003f8e;
+  }
+  
+  /* Home Icon (for home link) */
+  header nav .left-nav ul li.home-icon a::before {
+    display: block;
+   
+  }
+  
+  /* Icons for contact and email */
+  header nav .right-nav .contact-icon,
+  header nav .right-nav .email-icon {
+margin: 5px;
+  }
+  
+  header nav .right-nav .contact-icon img,
+  header nav .right-nav .email-icon img {
+    width: 25px;  /* Adjusted icon size to match other items */
+    height: 25px; /* Adjusted icon size */
+    transition: all 0.3s ease;
+  }
+  
+  header nav .right-nav .contact-icon img:hover,
+  header nav .right-nav .email-icon img:hover {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
+  }
+  
+  .intro {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('images/stockholm.jpg') no-repeat center center/cover;
+    padding: 0;
+    margin: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligns elements towards the bottom */
+    padding-left: 5%; /* Consistent left alignment */
+    padding-bottom: 5%; /* Adjust how far from the bottom the text block is */
+  }
+  
+  .intro h1 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: 800;
+    padding: 0;
+    text-shadow:  
+      1px 0 #003f8e,
+      -1px 0 #003f8e,
+      0 1px #003f8e,
+      0 -1px #003f8e;
+  }
+  
+  .intro p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0;
+    text-align: left; /* Override global text alignment */
+    margin: 0;
+    margin-top: 10px; /* Space between h1 and p */
+    text-shadow: 
+      1px 0 #003f8e,
+      -1px 0 #003f8e,
+      0 1px #003f8e,
+      0 -1px #003f8e;
+  }
+  
+
+
+.nav-2 ul {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: inline-flex; /* Align items horizontally */
+  justify-content: center; /* Center the navigation items */
+  align-items: center; /* Vertically align items */
+}
+
+.nav-2 ul li {
+  margin: 0 15px; /* Adjust spacing between menu items */
+}
+
+.nav-2 ul li a {
+  text-decoration: none;
+  font-size: 1rem; /* Font size for the text */
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  font-weight: 700;
+  color: #0066cc;
+}
+
+.nav-2 ul li a:hover {
+  color: #007bff; /* Change color on hover (blue) */
+}
+
+/* History Section */
+.history-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: 0px 250px;
+  background-color: transparent;
+  
+}
+
+.history-section .container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 30px;
+  margin: 20px auto; /* Center the section with auto margins */
+  margin-bottom: 50px;
+}
+
+
+/* Video Container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%; /* Full width of the parent container */
+  padding-top: 56.25%; /* 16:9 aspect ratio (height = 9 / 16 * 100%) */
+  overflow: hidden; /* Ensure no extra space appears outside the container */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: adds a nice shadow */
+}
+
+/* YouTube iframe */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  border: none;
+  border-radius: 10px; /* Matches the container */
+}
+
+.climate-section{
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: 0px 250px;
+  background-color: transparent;
+ 
+}
+
+
+
+/* Slideshow Container */
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden; /* Hide overflow for clean edges */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Slides */
+.slides {
+  position: relative;
+  width: 100%; /* Matches container width */
+  height: 400px; /* Set a fixed height for consistency */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.slides img {
+  width: 100%; /* Matches container width */
+  height: 100%; /* Ensures the image fits the container */
+  object-fit: cover; /* Ensures the image fills the space */
+  display: none; /* Only show active image */
+}
+
+.slides img.active {
+  display: block; /* Show active slide */
+}
+
+/* Arrows for Navigation */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white; /* Black with opacity */
+  color: black;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker black on hover */
+  color: white;
+}
+
+
+/* Thumbnails container */
+.thumbnails {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Thumbnail images */
+.thumbnails img {
+  width: 100px;
+  height: 75px; /* Maintain a consistent thumbnail size */
+  object-fit: cover; /* Crops thumbnails slightly for aesthetics */
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border 0.3s ease;
+  position: relative; /* Required for positioning the overlay */
+}
+
+/* Hover effect */
+.thumbnails img:hover {
+  transform: scale(1.1); /* Scale up the thumbnail */
+  z-index: 1; /* Bring the hovered thumbnail to the front */
+}
+
+/* Active thumbnail with border and overlay */
+.thumbnails img.active-thumbnail {
+  border-color: #3498db ;
+}
+
+
+
+.what-to-do-section/* History Section */ {
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: 0px 250px;
+  background-color: transparent;
+ 
+
+}
+
+.what-to-do-section .container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.where-to-stay-section/* History Section */ {
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: 0px 250px;
+  background-color: transparent;
+ 
+
+}
+
+.where-to-stay-section .container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+
+
+.accommodation-list .accommodation-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+.accommodation-item img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+.accommodation-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.accommodation-item ul li {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.accommodation-item a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.accommodation-item a:hover {
+  text-decoration: underline;
+}
+
+
+
+#Attractions {
+  margin: 40px auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+#Attractions h2 {
+  margin: 0px 70px; /* Center the slider */
+}
+
+.attractions-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* Ensure the slider has a fixed width */
+  overflow: hidden; /* Hide overflow but keep buttons visible */
+  margin: 0 auto; /* Center the slider */
+  height: 340px; /* Adjust the height to include space for buttons */
+}
+
+/* Slider Images */
+.slider-images {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  height: 100%;
+
+}
+.slider-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Slider Controls */
+.slider-controls {
+  position: absolute;
+  top: 1%;
+  right: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 10;
+  overflow: visible;
+}
+.slider-controls button {
+  background-color: rgba(255, 255, 255, 0.849);
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 22px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+
+}
+
+
+.slider-controls button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+
+.attraction-card {
+  margin: 10px;
+  width: 250px;
+  text-align: center;
+  
+}
+
+.attraction-card h4, p{
+padding: 0px 8px;
+}
+
+.attraction-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Bullet Controls */
+.bullet-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #9e9d9d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bullet.active {
+  background-color: #333;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .attraction-card {
+    width: 200px;
+  }
+  .slider-controls button {
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* Dark background overlay */
+.attraction-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+  z-index: 9999; /* Ensure it's on top of all content */
+  overflow: hidden; /* Prevent page scroll */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show the modal */
+.attraction-modal.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Modal content */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centering */
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: left;
+  z-index: 10000;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  font-family: 'Arial', sans-serif; /* Elegant font */
+}
+
+
+.modal-content h3 {
+ margin-top: 10px;
+
+}
+
+/* Modal Image Styling */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Smooth rounded corners for images */
+  margin-bottom: 20px;
+}
+
+/* Styling for the modal body content */
+.modal-content p {
+  font-size: 1rem;
+  color: #555; /* Light dark color for the text */
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+.modal-content ul li {
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+/* Close button */
+.modal-close {
+  position: fixed; /* Fix it to the center of the window */
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center it in the middle */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Increased size for better clickability */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  z-index: 10100; /* Ensure it stays above other content */
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background on hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Adjust modal width for smaller screens */
+    padding: 20px;
+  }
+
+  .modal-content h3 {
+    font-size: 2rem;
+
+  }
+}
+
+/* Modal Text and Links Styling */
+.modal-content a {
+  text-decoration: none;
+  color: #007BFF; /* Blue links */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.modal-content a:hover {
+  color: #0056b3; /* Darker blue when hovered */
+}
+
+
+
+/* To disable page scroll when modal is open */
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .history-section .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .text-content h2 {
+    font-size: 2rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .video-container iframe {
+    max-width: 100%;
+    height: 300px;  /* Reduced height for small screens */
+  }
+}
+
+
+
+
+  /* Services Section */
+  .services {
+    background-color: #fff;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .services div {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .services div h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .services div p {
+    font-size: 1rem;
+  }
+
+  /* Latest News Section */
+  .latest-news {
+    background-color: #fff;
+    padding: 40px;
+  }
+
+  .latest-news h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .latest-news article {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .latest-news article h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .latest-news article p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .latest-news article a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+  }
+
+  .latest-news article a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Section */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  footer .footer-links ul {
+    list-style-type: none;
+    padding: 10px 0;
+  }
+
+  footer .footer-links ul li {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  footer .footer-links ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer .footer-links ul li a:hover {
+    text-decoration: underline;
+  }
+
+  footer p {
+    margin-top: 20px;
+  }
+
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    header nav ul {
+      text-align: left;
+    }
+
+    .services {
+      grid-template-columns: 1fr;
+    }
+
+    .intro .btn {
+      padding: 10px 25px;
+    }
+  }
+
+
+  
+
+
+
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    header nav {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    header nav .left-nav {
+      margin-bottom: 10px;
+    }
+  
+    header nav .left-nav ul {
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  
+    header nav .right-nav p {
+      margin-top: 10px;
+    }
+  }
+  
+  

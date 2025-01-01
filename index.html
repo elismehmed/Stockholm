@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Example City</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Other meta tags and stylesheets -->
+  
+
+
+</head>
+
+<body>
+  <header>
+    <nav>
+        <div class="left-nav">
+            <ul>
+                <li class="home-icon active"><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <span class="separator">|</span>
+                <li><a href="#Attractions">Attractions</a></li>
+                <span class="separator">|</span>
+                <li><a href="#Activities">Activities</a></li>
+                <span class="separator">|</span>
+                <li><a href="#Events">Events</a></li>
+                <span class="separator">|</span>
+                <li><a href="#Eat & Drink">Eat & Drink</a></li>
+                <span class="separator">|</span>
+                <li><a href="#Contact">Contact</a></li>
+                
+
+            </ul>
+        </div>
+        <div class="right-nav">
+            <p>
+                <span><i class="fas fa-phone-alt"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></span>
+                <span class="separator">|</span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:info@examplecity.com">info@examplecity.com</a></span>
+            </p>
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Intro Section -->
+    <section class="intro">
+      <h1>Stockholm</h1>
+      <p>Explore the beauty, history, and vibrant culture of our city</p>
+    </section>
+
+    
+<!-- Second Navigation Section -->
+
+<nav class="nav-2">
+  <ul>
+      <li><a href="#History">History</a></li>
+      <li><a href="#Climate">Climate</a></li>
+      <li><a href="#What-to-do">What to do</a></li>
+      <li><a href="#Where-to-stay">Where to stay</a></li>
+  </ul>
+</nav>
+
+
+
+<section id="History" class="history-section">
+  <div class="container">
+    <!-- Text Content -->
+    <div class="text-content">
+      <h2>Stockholm's History</h2>
+      <p>  Stockholm's History Stockholm, the largest city and capital of Sweden, is a vibrant and historically rich city spread across 14 islands. Located at the junction of Lake Mälaren and the Baltic Sea, Stockholm has been a central hub of Swedish culture, politics, and trade for centuries.
+        <br><br>
+        The city's origins date back to 1252 when Birger Jarl fortified the area to protect Sweden from sea invasions. Its strategic position made Stockholm a pivotal trade center, particularly after forming a trade alliance with Lübeck in the Hanseatic League. By 1436, Stockholm was officially named the Swedish capital, signifying its importance in the Nordic region.
+        <br><br>
+        During the 16th century, under the leadership of King Gustav Vasa, Stockholm underwent a cultural and architectural renaissance. The city expanded rapidly and became a symbol of Swedish independence after liberation from Danish rule. Today, Stockholm blends its medieval charm with modern innovation, boasting landmarks like the Royal Palace, Gamla Stan (the Old Town), and cutting-edge technology districts.</p>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/5fcEntH5a5I" 
+      title="Stockholm History"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section id="Climate" class="climate-section">
+  <div class="container">
+    <!-- Text Content -->
+    <div class="text-content">
+      <h2>Stockholm's Climate and the Best Time to Visit</h2>
+      <p>
+        Stockholm’s climate offers four distinct seasons. Summers are warm and inviting, perfect for long days exploring the city, while winters bring freezing temperatures, occasional snow, and quieter streets. Autumn paints the city in vibrant colors, and spring welcomes everyone back outdoors. 
+        <br><br>
+        The warmest time to visit is mid-July, with average temperatures of 20-22°C. Winters (December to February) are cold, with temperatures sometimes dropping to -5°C. 
+        <br><br>
+        By March and April, temperatures gradually rise, reaching up to 9°C in April and 16°C in May. Each season has its charm, making Stockholm a city for all weather lovers!
+      </p>
+    </div>
+  </div>
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="images/spring.jpg" alt="Stockholm in Spring">
+      <img src="images/midsommar.jpg" alt="Stockholm in Summer">
+      <img src="images/autumn.jpg" alt="Stockholm in Autumn">
+      <img src="images/winter.jpg" alt="Stockholm in Winter">
+    </div>
+
+   <!-- Arrows -->
+   <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+   <span class="next" onclick="changeSlide(1)">&#10095;</span>
+
+  </div>
+
+    <div class="thumbnails">
+      <img src="images/spring.jpg" alt="Spring" onclick="showSlide(0)">
+      <img src="images/midsommar.jpg" alt="Summer" onclick="showSlide(1)">
+      <img src="images/autumn.jpg" alt="Autumn" onclick="showSlide(2)">
+      <img src="images/winter.jpg" alt="Winter" onclick="showSlide(3)">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="What-to-do"" class="what-to-do-section">
+  <div class="container">
+    <!-- Text Content -->
+    <div class="text-content">
+      <h2>What to Do in Stockholm</h2>
+      <p>
+        Spread across 14 islands on Lake Malaren, Sweden’s capital embraces its rich history while energetically throwing itself into the future with dynamism, reflected in its stylish districts and the trendy island of Sodermalm, south of the center. 
+        <br><br>
+        With so many bridges to walk or drive across and ferries to take you from point A to point B, Stockholm wants you to get out and about and explore everything it has to offer. The wooded island of Djurgarden offers families a fantastic day out, with museums and fun in equal measure.
+        <br><br>
+        Don’t miss the historical **Gamla Stan**, the Old Town of Stockholm, with its cobblestone streets and colorful buildings. Visit the **Royal Palace**, one of the largest in Europe, and explore the impressive **Stockholm Cathedral**, known for its stunning architecture.
+        <br><br>
+        For a unique experience, explore the **Vasa Ship Museum**, home to the 17th-century Vasa ship, and take one of the many **boat tours** around Stockholm’s archipelago, offering spectacular views of the city from the water.
+      </p>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/7ZAJMzunggg" 
+      title="Stockholm What To Do"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+
+
+
+
+<section id="Where-to-stay" class="where-to-stay-section">
+  <div class="container">
+    <!-- Text Content -->
+    <div class="text-content">
+      <h2>Where to Stay in Stockholm</h2>
+      <p>
+        Stockholm is a city where the prices of hotels, guest houses, and apartments generally run higher than in most other European cities. That said, choosing your travel dates wisely can certainly take the edge off these steep costs.
+        <br><br>
+        Another effective strategy to save on accommodation is to venture beyond Stockholm’s Old Town, Gamla Stan. Even there, surprisingly affordable options exist if you know where to look, without compromising on quality.
+        <br><br>
+        In the article below, you’ll discover the best areas in Stockholm, complete with recommended places to stay that cater to various budgets. Whether you’re looking to splurge or save, you’ll find something that suits your wallet.
+      </p>
+    </div>
+  </div>
+
+  <div class="accommodation-list">
+    <!-- Area 1: Gamla Stan -->
+    <div class="accommodation-item">
+      <h3>1. Gamla Stan - Best for First-Timers</h3>
+      <img src="images/gamlastan.jpg" alt="Gamla Stan">
+      <p>
+        Gamla Stan, the Old Town, is the historical heartbeat of Stockholm. It’s filled with Swedish heritage, historical sights, and lively restaurants, shops, and bars. Accommodation here tends to be pricier, but you can still find budget-friendly options if booked in advance.
+      </p>
+      <h4>Best Hotels in Gamla Stan:</h4>
+      <ul>
+        <li>Hôtel Reisen in The Unbound Collection by Hyatt (€€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Victory Hotel (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Castanea Old Town Hostel (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 2: Norrmalm -->
+    <div class="accommodation-item">
+      <h3>2. Norrmalm - Best for Central Location</h3>
+      <img src="images/norrmalm.jpg" alt="Norrmalm">
+      <p>
+        Norrmalm is the commercial heart of Stockholm, offering a buzzing atmosphere and modern amenities. It’s perfect for those who want to stay close to shopping, dining, and public transport.
+      </p>
+      <h4>Best Hotels in Norrmalm:</h4>
+      <ul>
+        <li>Bank Hotel, a Member of Small Luxury Hotels (€€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Hotel With Urban Deli (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>City Backpackers Hostel (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 3: Sodermalm -->
+    <div class="accommodation-item">
+      <h3>3. Sodermalm - Best for Nightlife</h3>
+      <img src="images/sodermalm.jpg" alt="Sodermalm">
+      <p>
+        Sodermalm is a vibrant area known for its nightlife, trendy cafes, and art galleries. It’s a great spot for young travelers and offers more affordable accommodation options.
+      </p>
+      <h4>Best Hotels in Sodermalm:</h4>
+      <ul>
+        <li>Hotel Frantz, WorldHotels Crafted (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Hotel Hornsgatan (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>STF Zinkensdamm Hostel (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 4: Kungsholmen -->
+    <div class="accommodation-item">
+      <h3>4. Kungsholmen - Best for Families</h3>
+      <img src="images/kungsholmen.jpg" alt="Kungsholmen">
+      <p>
+        Kungsholmen offers a peaceful, family-friendly environment. It’s located near the iconic Stockholm City Hall, and while it’s slightly further from the main tourist attractions, it offers great value for families.
+      </p>
+      <h4>Best Hotels in Kungsholmen:</h4>
+      <ul>
+        <li>Courtyard by Marriott Stockholm Kungsholmen (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Sky Hotel Apartments, Stockholm (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>City Hostel (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 5: Vasastan -->
+    <div class="accommodation-item">
+      <h3>5. Vasastan - Best for Quiet Stays</h3>
+      <img src="images/vasastan.jpg" alt="Vasastan">
+      <p>
+        Vasastan offers a quieter, local experience while still being conveniently close to the city center. It’s ideal for those looking for an authentic slice of Stockholm life at a more affordable price.
+      </p>
+      <h4>Best Hotels in Vasastan:</h4>
+      <ul>
+        <li>Miss Clara by Nobis (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Hotel Ruth, WorldHotels Crafted (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Ibis Styles Stockholm Odenplan (€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 6: Djurgarden -->
+    <div class="accommodation-item">
+      <h3>6. Djurgarden - Best for Museums</h3>
+      <img src="images/djurgarden.jpg" alt="Djurgarden">
+      <p>
+        Djurgarden is ideal for museum lovers, with its wide green spaces and world-class museums. Accommodation here is more limited, but it’s the perfect spot if you want to stay amidst nature and culture.
+      </p>
+      <h4>Best Hotels in Djurgarden:</h4>
+      <ul>
+        <li>Backstage Hotel Stockholm (€€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Hotel Hasselbacken (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+
+    <!-- Area 7: Ostermalm -->
+    <div class="accommodation-item">
+      <h3>7. Ostermalm - Best for Luxury</h3>
+      <img src="images/ostermalm.jpg" alt="Ostermalm">
+      <p>
+        Ostermalm is Stockholm’s upscale district, home to high-end shops, luxury dining, and sophisticated nightlife. Expect higher accommodation prices here, but the quality is top-notch.
+      </p>
+      <h4>Best Hotels in Ostermalm:</h4>
+      <ul>
+        <li>Villa Dagmar (€€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>The Sparrow Hotel (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+        <li>Biz Apartment Gärdet (€€) - <a href="https://www.booking.com" target="_blank">Book here</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="Attractions">
+  <h2>Attractions</h2>
+  <div class="attractions-slider">
+     <!-- Slider Controls -->
+     <div class="slider-controls">
+      <button class="prev-slide">&lt;</button>
+      <button class="next-slide">&gt;</button>
+    </div>
+    <div class="slider-images">
+      <!-- Slide 1 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#storkyrka-modal">
+          <img src="images/storkyrkan.jpeg" alt="Storkyrkan">
+          <h4>Storkyrkan</h4>
+          <p>SEK 100.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#viking-museum-modal">
+          <img src="images/viking.jpeg" alt="Viking Museum">
+          <h4>Viking Museum</h4>
+          <p>SEK 199.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#hopon-hopoff-modal">
+          <img src="images/hoponhopoff.jpg" alt="Hop-On Hop-Off">
+          <h4>Hop-On Hop-Off</h4>
+          <p>SEK 390.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#royal-palace-modal">
+          <img src="images/royal-palace.jpeg" alt="Royal Palace">
+          <h4>Royal Palace</h4>
+          <p>SEK 200.00 / person normally</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#vasa-modal">
+          <img src="images/vasamuseum.jpeg" alt="Vasa Museum">
+          <h4>Vasa Museum</h4>
+          <p>SEK 195.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#skansen-modal">
+          <img src="images/skansen.jpeg" alt="Skansen">
+          <h4>Skansen</h4>
+          <p>SEK 265.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#nobel-museum-modal">
+          <img src="images/nobelprice.jpg" alt="Nobel Museum">
+          <h4>Nobel Museum</h4>
+          <p>SEK 140.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#tekniska-modal">
+          <img src="images/tekniska.jpg" alt="Tekniska Museum">
+          <h4>Tekniska Museum</h4>
+          <p>SEK 170.00 / person normally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+
+
+  <!-- Bullet controls under the slider -->
+  <div class="bullet-controls">
+    <span class="bullet active"></span>
+    <span class="bullet"></span>
+  </div>
+
+  <!-- Modals -->
+  <div id="storkyrka-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Storkyrkan - Stockholm Cathedral</h3>
+      <img src="images/storkyrkan-interior.jpeg" alt="Storkyrkan Interior">
+      <p>
+        Located in the picturesque medieval Old Town, Storkyrkan Stockholm Cathedral is the mother church in Stockholm and dates back to the 1300s. The Cathedral has been at the heart of religious and political life in Sweden.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://www.svenskakyrkan.se/stockholmsdomkyrkoforsamling/storkyrkan" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="viking-museum-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>The Viking Museum</h3>
+      <img src="images/vikingmuseum-interior.jpg" alt="The Viking Museum Interior">
+      <p>Bringing the Vikings to life through interactive exhibitions and a Viking ride, the Viking Museum is a must-visit for history buffs. The Viking Museum is a treat of illusion, fantasy, and exciting tales. Learn about the Viking legacy, see an interactive display of the everyday life of a Viking family, and come face-to-face with a Viking replicated with the help of DNA from archaeological discoveries.</p>
+      <p>Highlights:</p>
+      <ul>
+        <li>Ragnfrid's Saga</li>
+        <li>Vikings: The True Story</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>Did you know?</p>
+<p>The Viking Museum showcases real Viking ships, some of which are over 1,000 years old!</p>
+
+      <a href="https://thevikingmuseum.com/en/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="hopon-hopoff-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Stockholm Hop-On Hop-Off Bus</h3>
+      <img src="hopon-bus.jpg" alt="Hop-On Hop-Off Bus">
+      <p>It’s one of the easiest ways to see all the attractions in one go or make your own itinerary and hop on and off at your favorite attractions with over 20 stops. There are, including the , </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The bus stops at all of the famous sites in Stockholm:</li>
+        <li>Vasa Museum, Skansen, Old Town, Nordiska, Fotografiska, and several popular shopping districts.</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="royal-palace-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>The Royal Palace</h3>
+      <img src="royal-palace-interior.jpg" alt="The Royal Palace Interior">
+      <p>
+        Explore the official residence of the Swedish monarch with exquisite rooms and fascinating history.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+  
+  <div id="vasa-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>The Vasa Museum</h3>
+      <img src="vasa-museum-interior.jpg" alt="The Vasa Museum Interior">
+      <p>
+        Discover the incredible story of the 17th-century ship that sank on its maiden voyage and was recovered intact.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="skansen-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Skansen</h3>
+      <img src="skansen-interior.jpg" alt="Skansen Interior">
+      <p>
+        The world's first open-air museum showcasing Sweden's history and wildlife.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="nobel-museum-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Nobel Prize Museum</h3>
+      <img src="nobel-museum-interior.jpg" alt="Nobel Prize Museum Interior">
+      <p>
+        Explore the lives and works of Nobel Prize laureates and the impact of their achievements.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="tekniska-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Tekniska - National Museum of Science and Technology</h3>
+      <img src="tekniska-interior.jpg" alt="Tekniska Museum Interior">
+      <p>
+        Learn about Sweden's innovations and technological achievements at this hands-on museum.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>The wooden statue of St George and the Dragon</li>
+        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
+        <li>17th-century French baroque style pulpit</li>
+      </ul>
+      <p>Did you know?</p>
+      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
+      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div>
+        <h3>Tourist Information</h3>
+        <p>Find all the information you need for your trip to Example City, from attractions to accommodations.</p>
+      </div>
+      <div>
+        <h3>Public Transport</h3>
+        <p>Get around the city with ease using our extensive public transport network.</p>
+      </div>
+      <div>
+        <h3>Events</h3>
+        <p>Stay up-to-date with the latest events and festivals happening in Example City.</p>
+      </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" class="latest-news">
+      <h2>Latest News</h2>
+      <article>
+        <h3>New Park Opening Soon</h3>
+        <p>We are excited to announce the opening of a new park in downtown Example City. Join us for the grand opening!</p>
+        <a href="#">Read more</a>
+      </article>
+      <article>
+        <h3>Annual Festival</h3>
+        <p>The Annual Example City Festival is coming soon! Don't miss out on the fun activities and performances.</p>
+        <a href="#">Read more</a>
+      </article>
+      <article>
+        <h3>City's Green Initiative</h3>
+        <p>Example City is launching a new initiative to make the city greener. Learn more about our sustainability efforts.</p>
+        <a href="#">Read more</a>
+      </article>
+    </section>
+  
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <p>Contact us: info@examplecity.com</p>
+    <p>&copy; 2024 Example City. All rights reserved.</p>
+  </footer>
+
+
+<script src="script.js"></script>
+
+
+
+
+
+</body>
+
+</html>
