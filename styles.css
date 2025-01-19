@@ -1,22 +1,40 @@
-/* Reset basic margin and padding */
-* {
+
+/* Ensure no extra margin or padding */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Prevents padding from affecting width */
 }
+
 
 /* General setup */
 html, body {
-  font-family: 'Poppins', sans-serif; /* Use Poppins for general text */
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: linear-gradient(135deg, #FFF4A3, #A2D9FF); /* Diagonal Gradient from Soft Yellow to Sky Blue */
-  line-height: 1.6;
+  background: linear-gradient(to bottom, #f5f5f5, #e0e0e0); /* Light gray to darker gray */
+}
+
+
+
+/* Prevent background scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;   /* Disable scrolling */
+  position: fixed;    /* Fix the body's position to prevent scrolling */
+  width: 100%;        /* Ensure body takes full width */
+  top: 0;             /* Ensure it stays at the top */
 }
 
 
@@ -88,29 +106,6 @@ header {
 
 }
 
-/* .nav-2 Styling */
-.nav-2 {
-  background-color: #D9A400; /* Mustard Yellow */
-  color: #1A2A45; /* Navy text for contrast */
-  padding: 20px 0;
-  text-align: center;
-  width: 100%;
-  position: relative; /* Default state */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  
-}
-
-/* Fixed state for .nav-2 */
-.nav-2.fixed {
-  color: #FFFFFF; /* White text */
-  position: fixed;
-  top: 0px; /* Adjust this value based on header height */
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999; /* Slightly lower than header */
-}
-
-
 
 /* Styling for active navigation links in both navbars */
 header nav .left-nav ul li a.active
@@ -122,10 +117,6 @@ header nav .left-nav ul li a.active
   transition: color 0.2s ease; /* Faster transition for color change */
 }
 
-.nav-2 ul li a.active {
-  color: #003f8e; /* Dark Blue */
-  font-weight: 800; /* Optional: Add more emphasis with bold text */
-}
 
 
 
@@ -135,13 +126,14 @@ header nav .left-nav ul li a.active
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
+    margin-left: 0; /* Remove extra left margin */
   }
   
   /* Left-side of navbar (navigation links) */
   header nav .left-nav {
     display: flex;
     align-items: center;  /* Align items vertically */
+    margin: 0; /* Ensure no extra margin */
   }
 
   
@@ -171,16 +163,13 @@ header nav .left-nav ul li a.active
     color: #003f8e;
   }
   
-  /* Right-side of navbar (contact info) */
-  header nav .right-nav {
-    text-align: right;
-    color: #fff;
+ 
+  /* Home Icon (for home link) */
+  header nav .left-nav ul li.home-icon a::before {
+    display: block;
+   
   }
-
-.right-nav span {
-    margin-right: 10px; /* Space between icons */
-}
-
+  
 
 .separator {
 
@@ -191,9 +180,20 @@ header nav .left-nav ul li a.active
     font-weight: 100;
   
 }
+  
 
+   /* Right-side of navbar (contact info) */
+   header nav .right-nav {
+    text-align: right;
+    color: #fff;
+  }
 
-.right-nav {
+.right-nav span {
+    margin-right: 10px; /* Space between icons */
+}
+
+  
+  .right-nav {
     line-height: 1; /* Prevent spacing issues */
 }
 
@@ -212,13 +212,7 @@ header nav .left-nav ul li a.active
   header nav .right-nav p a:hover {
   color: #003f8e;
   }
-  
-  /* Home Icon (for home link) */
-  header nav .left-nav ul li.home-icon a::before {
-    display: block;
-   
-  }
-  
+
   /* Icons for contact and email */
   header nav .right-nav .contact-icon,
   header nav .right-nav .email-icon {
@@ -237,12 +231,125 @@ margin: 5px;
     transform: scale(1.1); /* Slightly enlarge icons on hover */
   }
   
+
+
+
+
+
+/* Quieres header / hamburger /nav 1  */
+.city-name {
+  display: none; /* Hide by default for larger screens */
+  font-size: 2rem; /* Large font for smaller screens */
+  font-weight: bold;
+  color: #F8B800; /* Yellow for visibility */
+  text-transform: capitalize; /* Capitalize city name */
+  text-align: right; /* Center-align the text */
+}
+
+/* Main City Name */
+.city-main {
+  font-size: 2rem; /* Large font size for the main city name */
+  display: block; /* Make it a block element so it appears on its own line */
+}
+
+/* Sub City Name */
+.city-sub {
+  font-size: 1rem; /* Smaller font for the sub-text */
+  display: block; /* Display on a new line */
+  font-weight: normal; /* Make it slightly less bold */
+  color: #F8B800; /* Yellow to match the main city name */
+  text-transform: capitalize; /* Capitalize the text */
+  padding-left: 16px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+}
+
+.hamburger span {
+  background-color: #fff;
+  height: 2px;
+  width: 100%;
+}
+
+
+.header-content {
+  display: none; /* Hide the element completely */
+}
+
+
+
+
+
+
+/* .nav-2 Styling */
+.nav-2 {
+  background-color: #D9A400; /* Mustard Yellow */
+  color: #1A2A45; /* Navy text for contrast */
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Default state */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  
+}
+
+/* Fixed state for .nav-2 */
+.nav-2.fixed {
+  color: #FFFFFF; /* White text */
+  position: fixed;
+  top: 0px; /* Adjust this value based on header height */
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Slightly lower than header */
+}
+.nav-2 ul li a.active {
+  color: #003f8e; /* Dark Blue */
+  font-weight: 800; /* Optional: Add more emphasis with bold text */
+}
+
+.nav-2 ul {
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: inline-flex; /* Align items horizontally */
+  justify-content: center; /* Center the navigation items */
+  align-items: center; /* Vertically align items */
+}
+
+.nav-2 ul li {
+  margin: 0 15px; /* Adjust spacing between menu items */
+}
+
+.nav-2 ul li a {
+  text-decoration: none;
+  font-size: 1rem; /* Font size for the text */
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  font-weight: 700;
+  color: #0066cc;
+}
+
+.nav-2 ul li a:hover {
+  color: #007bff; /* Change color on hover (blue) */
+}
+
+
+
+
+
   .intro {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
                 url('images/stockholm.jpg') no-repeat center center/cover;
     padding: 0;
     margin: 0;
-    height: 85vh;
+    height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Aligns elements towards the bottom */
@@ -285,32 +392,6 @@ margin: 5px;
   
 
 
-.nav-2 ul {
-  list-style-type: none; /* Remove bullet points */
-  margin: 0;
-  padding: 0;
-  display: inline-flex; /* Align items horizontally */
-  justify-content: center; /* Center the navigation items */
-  align-items: center; /* Vertically align items */
-}
-
-.nav-2 ul li {
-  margin: 0 15px; /* Adjust spacing between menu items */
-}
-
-.nav-2 ul li a {
-  text-decoration: none;
-  font-size: 1rem; /* Font size for the text */
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-  font-weight: 700;
-  color: #0066cc;
-}
-
-.nav-2 ul li a:hover {
-  color: #007bff; /* Change color on hover (blue) */
-}
-
 /* History Section */
 .history-section {
   padding: 40px 20px;
@@ -343,8 +424,9 @@ margin: 5px;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 0;
   width: 100%; /* Full width of the parent container */
-  padding-top: 56.25%; /* 16:9 aspect ratio (height = 9 / 16 * 100%) */
+  padding-top : 56.25% !important;
   overflow: hidden; /* Ensure no extra space appears outside the container */
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: adds a nice shadow */
@@ -359,7 +441,12 @@ margin: 5px;
   height: 100%; /* Full height of the container */
   border: none;
   border-radius: 10px; /* Matches the container */
+  bottom:0;
 }
+
+
+
+
 
 .climate-section{
   padding: 40px 20px;
@@ -461,6 +548,8 @@ margin: 5px;
   border-color: #3498db ;
 }
 
+  
+
 
 
 .what-to-do-section/* History Section */ {
@@ -481,6 +570,9 @@ margin: 5px;
   text-align: left;
 }
 
+
+
+
 .where-to-stay-section/* History Section */ {
   padding: 40px 20px;
   max-width: 1200px;
@@ -499,8 +591,14 @@ margin: 5px;
   text-align: left;
 }
 
+.where-to-stay-section h3{
+margin-top: 20px;
+}
 
-
+.where-to-stay-section h4{
+  margin-top: 20px;
+  }
+  
 .accommodation-list .accommodation-item {
   display: flex;
   flex-direction: column;
@@ -540,93 +638,140 @@ margin: 5px;
 
 
 
+/* Section Styling */
 #Attractions {
-  margin: 40px auto;
+  margin: 0 auto;
   max-width: 1200px;
   text-align: center;
+  position: relative;
+  height: calc(100vh - 190px); /* Adjust height to fit below navigation bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  padding: 0px 20px;
+  padding-bottom: 20px;
+  margin-bottom: 15px; /* Space between sections */
+  scroll-margin-top: 100px; /* For smooth scrolling to work nicely */
 }
-
 #Attractions h2 {
-  margin: 0px 70px; /* Center the slider */
+  text-transform: capitalize;
+  margin-left:15px;
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  border: none;
+  padding-left: 0px;
 }
 
+/* Slider Styling */
 .attractions-slider {
   position: relative;
   width: 100%;
-  max-width: 1200px; /* Ensure the slider has a fixed width */
-  overflow: hidden; /* Hide overflow but keep buttons visible */
-  margin: 0 auto; /* Center the slider */
-  height: 340px; /* Adjust the height to include space for buttons */
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 30px auto;
+  height: 360px;
+  
 }
 
-/* Slider Images */
 .slider-images {
   display: flex;
+  align-items: center;
   transition: transform 0.6s ease-in-out;
   height: 100%;
-
 }
+
 .slider-slide {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 100%;
+  height: 360px;
   box-sizing: border-box;
 }
+
 
 /* Slider Controls */
 .slider-controls {
   position: absolute;
-  top: 1%;
-  right: 80px;
+  top: 0; /* Align to the top of the slider section */
+  right: 10px; /* Adjust to move it slightly left */
+  transform: translate(-20%, 90%); /* Fine-tune alignment */
   display: flex;
-  flex-direction: row;
-  gap: 8px;
+  gap: 5px;
   z-index: 10;
-  overflow: visible;
 }
+
+
 .slider-controls button {
-  background-color: rgba(255, 255, 255, 0.849);
+  background-color: #ffffff;
   border: none;
-  color: black;
+  color: #333;
   cursor: pointer;
-  font-size: 22px;
-  width: 35px;
-  height: 35px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.2s;
-
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 
 .slider-controls button:hover {
   background-color: #f0f0f0;
   transform: scale(1.1);
 }
 
-
+/* Attraction Cards */
 .attraction-card {
-  margin: 10px;
-  width: 250px;
+  margin: 15px;
+  width: 260px;
+  height: auto; /* Let the content define height */
   text-align: center;
-  
+  background: transparent;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.attraction-card h4, p{
-padding: 0px 8px;
+.attraction-card h4 {
+  
+  font-size: 1rem;
+  color: #333;
+  margin: 15px 10px;
+  font-weight:550;
+}
+
+.attraction-card p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0 10px 15px;
 }
 
 .attraction-card img {
   width: 100%;
-  height: 180px;
+  height: 200px; /* Consistent height */
   object-fit: cover;
-  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attraction-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.attraction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Bullet Controls */
 .bullet-controls {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
 }
@@ -635,141 +780,121 @@ padding: 0px 8px;
   width: 12px;
   height: 12px;
   margin: 0 5px;
-  background-color: #9e9d9d;
+  background-color: #d1d1d1;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .bullet.active {
-  background-color: #333;
+  background-color: #555;
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .attraction-card {
-    width: 200px;
-  }
-  .slider-controls button {
-    font-size: 20px;
-    width: 35px;
-    height: 35px;
-  }
-}
 
-
-/* Dark background overlay */
+/* Modal Overlay */
 .attraction-modal {
   display: none; /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-  z-index: 9999; /* Ensure it's on top of all content */
-  overflow: hidden; /* Prevent page scroll */
-  visibility: hidden; /* Hidden by default */
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Show the modal */
+/* Show Modal */
 .attraction-modal.show {
-  display: block;
-  visibility: visible;
-  opacity: 1;
+  display: flex; /* Center modal content */
 }
 
-/* Modal content */
+/* Modal Content */
 .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centering */
+  position: relative;
   background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 80%;
-  max-height: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Adjusted for better modal width */
+  max-width: 800px; /* Prevent too wide modals */
+  max-height: 90vh; /* Limit the modal height */
   overflow-y: auto;
-  text-align: left;
-  z-index: 10000;
-  box-sizing: border-box;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  font-family: 'Arial', sans-serif; /* Elegant font */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between items */
 }
 
-
-.modal-content h3 {
- margin-top: 10px;
-
-}
-
-/* Modal Image Styling */
+/* Fixed Size Image */
 .modal-content img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px; /* Smooth rounded corners for images */
-  margin-bottom: 20px;
-}
-
-/* Styling for the modal body content */
-.modal-content p {
-  font-size: 1rem;
-  color: #555; /* Light dark color for the text */
-  line-height: 1.6;
+  width: 100%; /* Make image take the full width of the modal */
+  max-width: 600px; /* Max width of the image */
+  height: 400px; /* Fixed height */
+  object-fit: cover; /* Ensure the image covers the area properly */
+  border-radius: 8px;
   margin-bottom: 15px;
 }
 
+/* Close Button */
+.modal-close {
+  position: sticky;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  margin-bottom: 15px;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* Bullets and Text Alignment */
 .modal-content ul {
-  padding-left: 20px;
-  color: #555;
+  text-align: left; /* Align bullets to the left */
+  padding-left: 20px; /* Proper indentation */
+  margin: 0;
 }
 
 .modal-content ul li {
   margin-bottom: 8px;
-  list-style: disc;
+  list-style: disc; /* Standard bullet style */
+  color: #555; /* Subtle text color */
 }
 
-/* Close button */
-.modal-close {
-  position: fixed; /* Fix it to the center of the window */
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center it in the middle */
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-  color: #fff;
+
+/* Heading in Modal */
+.modal-content h2 {
+  margin: 0 0 20px 0; /* Remove top/bottom margin, adjust spacing */
+  padding: 0; /* Remove default padding */
+  font-size: 1.8rem; /* Adjust font size for better readability */
+  color: #333; /* Ensure consistent heading color */
+  text-align: center; /* Center align the heading */
   border: none;
-  border-radius: 50%;
-  width: 40px; /* Increased size for better clickability */
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  z-index: 10100; /* Ensure it stays above other content */
 }
 
-.modal-close:hover {
-  background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background on hover */
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 90%; /* Adjust modal width for smaller screens */
-    padding: 20px;
-  }
-
-  .modal-content h3 {
-    font-size: 2rem;
-
-  }
+/* Paragraph in Modal */
+.modal-content p {
+  margin: 20px 0; /* Add more space above and below the paragraph */
+  padding: 0; /* Ensure no default padding */
+  text-align: center; /* Center align the paragraph text */
+  color: #555; /* Subtle text color for better readability */
+  line-height: 1.8; /* Adjust line spacing */
 }
 
 /* Modal Text and Links Styling */
@@ -785,176 +910,1014 @@ padding: 0px 8px;
 }
 
 
+/* Section Styling */
+#Activities {
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  height: calc(100vh - 180px); /* Adjust height to fit below navigation bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  padding: 0px 20px;
+  padding-bottom: 20px;
+  margin-bottom: 15px; /* Space between sections */
+  scroll-margin-top: 100px; /* For smooth scrolling to work nicely */
+}
+#Activities h2 {
+  text-transform: capitalize;
+  margin-left:15px;
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  border: none;
+  padding-left: 0px;
+}
 
-/* To disable page scroll when modal is open */
-body.modal-open {
-  overflow: hidden; /* Prevent scrolling of the entire page */
+
+/* Section Styling */
+
+/* Section Styling */
+#Events {
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  height: calc(100vh - 180px); /* Adjust height to fit below navigation bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  padding: 0px 20px;
+  padding-bottom: 0px;
+  margin-bottom: 15px; /* Space between sections */
+  scroll-margin-top: 100px; /* For smooth scrolling to work nicely */
+}
+#Events h2 {
+  text-transform: capitalize;
+  margin-left:15px;
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  border: none;
+  padding-left: 0px;
+}
+
+
+/* Section Styling */
+#Eat_Drink {
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  height: calc(100vh - 180px); /* Adjust height to fit below navigation bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  padding: 0px 20px;
+  padding-bottom: 15px;
+  margin-bottom: 80px; /* Space between sections */
+  scroll-margin-top: 100px; /* For smooth scrolling to work nicely */
+}
+#Eat_Drink h2 {
+  text-transform: capitalize;
+  margin-left:15px;
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  border: none;
+  padding-left: 0px;
+}
+
+
+/* Contact Section */
+.contact-section {
+  position: relative;
+  background: url('images/contact.jpeg') no-repeat center center/cover; /* Add your image URL */
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Dark Overlay */
+.contact-overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px; /* Space between elements */
+}
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+/* Heading and Paragraph */
+.contact-overlay h2 {
+  font-size: 1.2rem; /* Reduced font size */
+  margin: 0; /* No margin for h2 */
+  padding: 10px 0; /* Custom padding */
+  color: #fff;
+  border: none;
+}
+
+.contact-overlay p {
+  font-size: 0.8rem; /* Reduced font size */
+  margin: 0; /* No margin for p */
+  padding: 10px 0; /* Custom padding */
+  color: rgba(255, 255, 255, 0.8); /* Slightly transparent text color */
+}
+
+/* Contact Button */
+#contact-button {
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background: #FFD700; /* Gold button color */
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0.7; /* Slight transparency */
+}
+
+#contact-button:hover {
+  background: #FFC107; /* Slightly darker gold on hover */
+  transform: scale(1.05);
 }
 
 
 
 
 
-/* Responsive Design */
+
+/* Footer Container */
+.site-footer {
+  background: linear-gradient(135deg, #1A1A1A, #2D2D2D); /* Dark Neutral Gradient */
+  color: #EDEDED; /* Light text for high contrast */
+  font-family: 'Arial', sans-serif;
+  padding: 60px 20px;
+  line-height: 1.8;
+  height: 75vh;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px; /* Increased gap for improved spacing */
+}
+
+/* Footer Sections */
+.footer-branding, .footer-nav, .footer-contact, .footer-social {
+  flex: 1 1 calc(25% - 40px);
+  min-width: 220px;
+}
+
+.footer-branding h1 {
+  font-size: 1.3rem;
+  color: #FFD700; /* Gold for an accent */
+  margin-bottom: 15px;
+}
+
+.footer-branding p {
+  font-size: 0.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.footer-nav h3, .footer-contact h3, .footer-social h3 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border-bottom: 0.5px solid #FFD700; /* Gold underline */
+  padding-bottom: 5px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav ul li {
+  margin: 10px 0;
+}
+
+.footer-nav ul li a {
+  color: #EDEDED;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-nav ul li a:hover {
+  color: #FFD700; /* Accent color on hover */
+  transform: scale(1.05); /* Slight scaling for interactivity */
+}
+
+/* Contact Links */
+.footer-contact p, .footer-contact a {
+  color: #EDEDED;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+  color: #FFD700;
+}
+
+/* Social Media Icons */
+.footer-social .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social .social-icons a {
+  background: #EDEDED;
+  color: #1A1A1A; /* Neutral dark for icons */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  background: #FFD700;
+  color: #1A1A1A;
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(237, 237, 237, 0.3);
+  padding-top: 20px;
+  color: rgba(237, 237, 237, 0.7);
+
+  /* Centering the content horizontally and vertically */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 100px; /* You can adjust this height as needed */
+}
+
+.footer-bottom a {
+  color: #EDEDED;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+  color: #FFD700;
+}
+
+
+
+
+/* Media Query for Mobile & Tablet */
 @media (max-width: 768px) {
+  /* Show the city name and hamburger menu on smaller screens */
+  .city-name {
+    display: block;
+    font-size: 1.5rem; /* Smaller font size for mobile/tablet */
+    padding-left: 10px;
+    text-align: left; /* Align to the left on mobile */
+  }
+
+  /* Left navigation - Hide by default for mobile/tablet */
+  header nav .right-nav {
+    display: none; /* Hide the menu */
+  }
+
+  .home-icon {
+    display: none;
+  }
+  /* Display the city name and hamburger menu */
+  .city-main {
+    font-size: 1.5rem; /* Larger font size for Stockholm */
+  }
+
+  .city-sub {
+    font-size: 1rem; /* Smaller font size for 'The Nordic Venecia' */
+    font-family: cursive; /* Change to your chosen font */
+  
+  }
+  
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Adjust header content for mobile/tablet */
+  .header-content {
+    display: flex;
+    justify-content: space-between; /* Space out the elements */
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Remove separator for mobile */
+  .separator {
+    display: none;
+  }
+
+  /* Left navigation - Hide by default for mobile/tablet */
+  header nav .left-nav {
+    display: none; /* Hide the menu */
+  }
+
+
+
+  header nav .left-nav.active {
+    display: block; /* Make the menu visible when active */
+    position: absolute;
+    top: 100%; /* Align the top of left-nav with the bottom of the header */
+    right: 0; /* Align the menu to the right */
+    background-color: #1A2A45; /* Same color as header */
+    width: 40%; /* Full-width menu */
+    height: 76vh; /* Limit the height to 30% of the viewport */
+    overflow-y: auto; /* Add scroll for overflow content */
+    padding: 10px 10px; /* Reduced padding inside the menu */
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+    margin: 0; /* Ensure no extra margin is added */
+  }
+  
+ 
+  /* Style the left-nav list */
+  header nav .left-nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Ensure items are stacked vertically */
+    gap: 5px; /* Reduced spacing between items */
+    align-items: flex-end; /* Align items to the left */
+  }
+  
+  /* Ensure each menu item is displayed as a block */
+  header nav .left-nav ul li {
+    display: block; /* Display each list item on a new row */
+  }
+  
+  /* Style the menu links */
+  header nav .left-nav ul li a {
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-size: 0.7rem; /* Reduced font size */
+    font-weight: 300; /* Adjust weight for better visibility */
+    display: block; /* Ensure links take up the full width of the parent */
+    padding: 8px 0; /* Reduced vertical padding for easier tapping */
+  }
+  
+
+  /* Optional: Mobile-friendly header styling */
+  header {
+    padding: 10px 20px; /* Less padding for smaller screens */
+    background-color: #1A2A45; /* Navy Blue */
+    color: #fff;
+    margin: 0; /* Remove extra margin that may cause white space */
+    box-sizing: border-box; /* Ensure proper width and height calculations */
+  }
+}
+
+
+
+
+/* Larger Screens: Keep everything as normal */
+@media (min-width: 780px) {
+  .city-name {
+    display: none; /* Hide the city name on larger screens */
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+   
+  }
+
+  .left-nav {
+    display: flex; /* Keep left navigation visible on larger screens */
+  }
+
+   
+}
+
+
+
+
+  /* For mobile/tablet screens, nav-2 is fixed at the bottom */
+  @media (max-width: 768px) {
+    .nav-2 {
+      background: linear-gradient(to bottom, #f5f5f5, #e0e0e0); /* Light gray to darker gray */
+      position: fixed;
+      bottom: 0; /* Fix it at the bottom of the viewport */
+      left: 0; /* Align it to the left of the screen */
+      right: 0; /* Align it to the right of the screen */
+      width: 100%; /* Keep the width to auto to avoid stretching */
+      padding: 20px 0; /* Adjust padding to suit smaller screens */
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow on top */
+      z-index: 999; /* Ensure it stays on top of other content */
+    }
+  
+    /* Ensures nav-2 links stay in a single row on mobile/tablet */
+    .nav-2 ul {
+      display: flex; /* Use flexbox for horizontal layout */
+      justify-content: center; /* Center links horizontally */
+      padding: 0; /* Remove padding */
+      margin: 0; /* Remove margin */
+    }
+  
+    .nav-2 ul li {
+      margin: 0 10px; /* Space between links */
+    }
+  
+    /* Smaller font size for mobile/tablet screens */
+    .nav-2 ul li a {
+      font-size: 0.75rem !important; /* Adjust font size for smaller screens */
+      display: inline-block; /* Ensure links stay inline */
+    }
+  }
+  
+
+
+
+
+/* Responsive styles for mobile (small screens) */
+@media (max-width: 780px) {
+  .intro {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
+    url('images/stockholm.jpg') no-repeat center center/cover;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    text-align: center; /* Center-align the text inside */
+    height: 40vh;
+  }
+
+  .intro h1 {
+    display: none; /* Ensure h1 is hidden */
+  }
+
+  .intro p {
+   
+   display: none;
+  }
+}
+
+
+
+
+/* Media Query for screens smaller than 780px */
+@media (max-width: 780px) {
+  .history-section {
+    margin: 0 20px; /* Reduce margins on smaller screens */
+    padding: 20px;  /* Reduce padding */
+  }
+
   .history-section .container {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center;
+    text-align: center;
   }
 
-  .text-content h2 {
-    font-size: 2rem;
+  .text-content {
+    margin-bottom: 30px; /* Reduce bottom margin */
+    padding-right: 0;
+    width: 100%; /* Ensure text takes full width */
   }
+ 
 
-  .text-content p {
-    font-size: 1rem;
+  /* Adjust video container */
+  .video-container {
+    padding-top: 0 !important;  /* Remove aspect ratio padding for smaller screens */
+    height: 300px;  /* Set a fixed height for smaller screens */
+    
   }
 
   .video-container iframe {
-    max-width: 100%;
-    height: 300px;  /* Reduced height for small screens */
+    object-fit: cover; /* Ensures the video fills the container completely */
   }
+
+  .history-section h2 {
+    font-size: 1rem !important; /* Make font size smaller for smaller screens */
+    border-left: 2px solid #1A2A45 !important;
+  }
+  .history-section p {
+    font-size: 0.8rem !important; /* Make font size smaller for smaller screens */
+    color: #333;
+    
+  }
+
 }
 
 
 
 
-  /* Services Section */
-  .services {
-    background-color: #fff;
-    padding: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+
+@media (max-width: 768px) {
+
+  .climate-section {
+    margin: 0 20px; /* Reduce margins on smaller screens */
+    padding: 20px;  /* Reduce padding */
+  }
+  
+  .climate-section h2 {
+    font-size: 1rem !important; /* Make font size smaller for smaller screens */
+    border-left: 2px solid #1A2A45 !important;
+  }
+  .climate-section p {
+    font-size: 0.8rem !important; /* Make font size smaller for smaller screens */
+    color: #333;
+    
   }
 
-  .services div {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Slideshow Container */
+      .slideshow-container {
+        position: relative;
+        max-width: 100%; /* Full width for mobile */
+        margin: 20px auto;
+        overflow: hidden; /* Hide overflow for clean edges */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        touch-action: pan-x; /* Enable horizontal touch events for swiping */
+      }
+    
+      /* Slides container */
+      .slides {
+        position: relative;
+        display: flex; /* Align images horizontally */
+        flex-wrap: nowrap;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Ensure smooth snap-to-scroll effect */
+        scroll-behavior: smooth; /* Smooth scroll transition */
+        width: 100%;
+        -webkit-overflow-scrolling: touch; /* Improve scrolling performance on mobile */
+      }
+    
+      /* Each image in the slideshow */
+      .slides img {
+        width: 100%; /* Make each image take full container width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Crop the images to cover the container */
+        scroll-snap-align: center; /* Align images to the center during scroll */
+        user-select: none; /* Disable text selection while dragging */
+      }
+    
+      /* Hide thumbnails for mobile */
+      .thumbnails {
+        display: none;
+      }
+    
+    
+      .slides {
+        height: 250px; /* Adjust the height based on your preference */
+      }
+    
+    
+    
   }
 
-  .services div h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+
+@media (max-width: 780px) {
+  /* Hide bullets */
+  .bullet-controls {
+    display: none;
   }
 
-  .services div p {
-    font-size: 1rem;
+  /* Hide the next/prev buttons */
+  .slider-controls {
+    display: none;
   }
 
-  /* Latest News Section */
-  .latest-news {
-    background-color: #fff;
-    padding: 40px;
-  }
-
-  .latest-news h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-
-  .latest-news article {
+  /* Adjust slider for smaller screens */
+  .attractions-slider {
+    width: 100%;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Ensure snapping behavior */
+    display: flex;
+    padding: 0;
+    gap: 10px; /* Space between slides */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+    height: 300px; /* Adjust height for the container */
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
   }
 
-  .latest-news article h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+  .slider-images {
+    display: flex;
+    margin: 0;
+    width: 200%; /* Make the width of the container double to fit all 8 images */
   }
 
-  .latest-news article p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+  .slider-slide {
+    margin-top: 0px;
+    flex: 0 0 50%; /* Each slide will take up 50% of the container */
+    height: 100%; /* Ensure each slide takes the full height of the container */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+    scroll-snap-align: start; /* Ensure smooth snapping */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the content at the top */
+    margin-bottom: 40px;
   }
 
-  .latest-news article a {
+  /* Images should take up most of the height, maintaining a good aspect ratio */
+  .slider-slide img {
+    width: 100%; /* Make images take up most of the slide width */
+    max-height: 180px; /* Set a max height to prevent them from becoming too small */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional: add rounded corners for a more polished look */
+    margin: 0; /* Remove margin */
+  }
+
+  /* Attraction card content styling */
+  .attraction-card {
+    margin-bottom: 10px; /* Adjust the spacing between cards */
+    width: 90%; /* Use a percentage for a more responsive card size */
+    height: auto; /* Let the card adjust its height based on content */
+    text-align: center;
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    border-radius: none;
+    padding-bottom: 10px;
+    box-shadow: none;
+  }
+
+  .attraction-card h4 {
+    font-size: 0.8rem; /* Adjust font size */
+    color: #333;
+    margin: 5px;
+    font-weight: 600; /* Bold text */
+    text-align: left;
+  }
+
+  .attraction-card p {
+    font-size: 0.6rem; /* Adjust the font size for description */
+    color: #777;
+    margin: 5px; /* Add some margin at the bottom */
+  }
+
+
+
+  @media (max-width: 780px) {
+    /* Adjust the space between sections */
+    section {
+      margin-bottom: 20px; /* Adjust the space between sections */
+    }
+  
+    /* Or target specific section classes/IDs if necessary */
+    .section {
+      margin-bottom: 20px; /* Adjust the space between sections */
+    }
+  
+    #section {
+      margin-bottom: 20px; /* Adjust the space between sections */
+    }
+  }
+  
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  .what-to-do-section {
+    margin: 0 20px; /* Reduce margins on smaller screens */
+    padding: 20px;  /* Reduce padding */
+  }
+
+  .what-to-do-section .container {
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-content {
+    margin-bottom: 30px; /* Reduce bottom margin */
+    padding-right: 0;
+    width: 100%; /* Ensure text takes full width */
+  }
+ 
+
+  /* Adjust video container */
+  .video-container {
+    padding-top: 0 !important;  /* Remove aspect ratio padding for smaller screens */
+    height: 300px;  /* Set a fixed height for smaller screens */
+    
+  }
+
+  .video-container iframe {
+    object-fit: cover; /* Ensures the video fills the container completely */
+  }
+
+  .what-to-do-section h2 {
+    font-size: 1rem !important; /* Make font size smaller for smaller screens */
+    border-left: 2px solid #1A2A45 !important;
+  }
+  .what-to-do-section p {
+    font-size: 0.8rem !important; /* Make font size smaller for smaller screens */
+    color: #333;
+    
+  }
+
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .where-to-stay-section {
+    margin: 0 20px; /* Reduce margins on smaller screens */
+    padding: 20px;  /* Reduce padding */
+    background-color: transparent; /* Maintain transparent background */
+    border-radius: 10px;
+  }
+
+  .where-to-stay-section h2 {
+    font-size: 1rem !important; /* Make font size smaller for smaller screens */
+    border-left: 2px solid #1A2A45 !important;
+    text-align: left; /* Center align the heading for better appearance */
+  }
+  .where-to-stay-section h3 {
+    font-size: 1rem !important; /* Make font size smaller for smaller screens */
+    text-align: left; /* Center align the heading for better appearance */
+    margin-top: 20px;
+  }
+    .where-to-stay-section h4 {
+      font-size: 1rem !important; /* Make font size smaller for smaller screens */
+      text-align: left; /* Center align the heading for better appearance */
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+    
+  }
+ 
+  .where-to-stay-section  p {
+    font-size: 0.8rem !important; /* Make font size smaller for smaller screens */
+    color: #333;
+    
+  }
+
+  .where-to-stay-section .container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align content */
+    gap: 20px; /* Increase spacing between elements */
+    text-align: center; /* Center align text */
+  }
+
+  .accommodation-list .accommodation-item {
+    flex-direction: column; /* Ensure items stack vertically */
+    gap: 15px; /* Adjust spacing between elements */
+    margin-bottom: 20px;
+  }
+
+  .accommodation-item img {
+    max-height: 200px; /* Reduce image height for smaller screens */
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .accommodation-item ul {
+    padding: 0;
+    text-align: center; /* Center align list items */
+  }
+
+  .accommodation-item ul li {
+    font-size: 0.8rem !important; /* Make font size smaller for smaller screens */
+    color: #333;
+    margin: 5px 0;
+  }
+
+  .accommodation-item a {
+    color: #0066cc;
     text-decoration: none;
-    color: #007BFF;
+    font-weight: bold;
+    
+  }
+
+  .accommodation-item a:hover {
+    text-decoration: none; /* No hover effects */
+  }
+}
+
+@media (max-width: 780px) {
+  /* Contact Section */
+  .contact-section {
+    height: 75vh; /* Adjust height for smaller screens */
+    padding: 15px; /* Reduced padding */
+    margin: 0px;
+  }
+
+  /* Dark Overlay */
+  .contact-overlay {
+    max-width: 90%; /* Increase max-width for smaller screens */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  /* Heading and Paragraph */
+  .contact-overlay h2 {
+    display: none;
+  }
+
+  .contact-overlay p {
+    font-size: 0.75rem; /* Smaller font size */
+    padding: 8px 0; /* Custom padding */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+
+}
+
+
+
+@media (max-width: 780px) {
+  /* Footer Container */
+  .site-footer {
+    height: auto;
+    padding: 40px 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hide Branding */
+  .footer-branding {
+    display: none;
+  }
+
+  /* Footer Sections */
+  .footer-nav, .footer-contact, .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Footer Navigation */
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav ul li {
+    margin: 5px 0;
+  }
+
+  .footer-nav ul li a {
+    color: #EDEDED;
+    text-decoration: none;
+    font-size: 0.8rem; /* Smaller font size */
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .footer-nav ul li a:hover {
+    color: #FFD700; /* Accent color on hover */
+    transform: scale(1.05);
+  }
+
+  /* Footer Contact */
+  .footer-contact p, .footer-contact a {
+    color: #EDEDED;
+    font-size: 0.7rem; /* Smaller font size */
+    margin-bottom: 10px;
+  }
+
+  .footer-contact a {
+    text-decoration: none;
     font-weight: bold;
   }
 
-  .latest-news article a:hover {
+  .footer-contact a:hover {
     text-decoration: underline;
+    color: #FFD700;
   }
 
-  /* Footer Section */
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 30px 0;
+  /* Social Media Icons */
+  .footer-social .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
   }
 
-  footer .footer-links ul {
-    list-style-type: none;
-    padding: 10px 0;
-  }
-
-  footer .footer-links ul li {
-    display: inline-block;
-    margin-right: 30px;
-  }
-
-  footer .footer-links ul li a {
-    color: white;
+  .footer-social .social-icons a {
+    background: #EDEDED;
+    color: #1A1A1A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Smaller icon size */
+    height: 30px;
+    border-radius: 50%;
     text-decoration: none;
+    font-size: 1rem; /* Smaller font size */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
 
-  footer .footer-links ul li a:hover {
+  .footer-social .social-icons a:hover {
+    background: #FFD700;
+    color: #1A1A1A;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    margin: 30px;
+    text-align: center;
+    font-size: 0.7rem; /* Smaller font size */
+    border-top: 1px solid rgba(237, 237, 237, 0.3);
+    padding-top: 20px;
+    color: rgba(237, 237, 237, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Adjusted height */
+  }
+
+  .footer-bottom a {
+    color: #EDEDED;
+    text-decoration: none;
+    font-size: 0.7rem;
+  }
+  .footer-bottom p {
+    color: #EDEDED;
+    text-decoration: none;
+    font-size: 0.7rem;
+  }
+
+  .footer-bottom a:hover {
     text-decoration: underline;
-  }
-
-  footer p {
-    margin-top: 20px;
-  }
-
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    header nav ul {
-      text-align: left;
-    }
-
-    .services {
-      grid-template-columns: 1fr;
-    }
-
-    .intro .btn {
-      padding: 10px 25px;
-    }
-  }
-
-
-  
-
-
-
-  
-  /* Responsive Design for Smaller Screens */
-  @media (max-width: 768px) {
-    header nav {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    header nav .left-nav {
-      margin-bottom: 10px;
-    }
-  
-    header nav .left-nav ul {
-      flex-direction: column;
-      margin-bottom: 10px;
-    }
-  
-    header nav .right-nav p {
-      margin-top: 10px;
-    }
+    color: #FFD700;
   }
   
-  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

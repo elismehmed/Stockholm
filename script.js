@@ -16,47 +16,101 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. Nav-2 Fixed Position Script
+// Save the scroll position before resizing
+let lastScrollPosition = window.scrollY;
+
+// Restore the scroll position after resizing
+window.addEventListener('resize', () => {
+  window.scrollTo(0, lastScrollPosition);
+});
+
+// Update scroll position on scroll
+window.addEventListener('scroll', () => {
+  lastScrollPosition = window.scrollY;
+});
+
+
+
+
+
+
+
+// 4. Smooth Scroll for Navigation Links (for both header and nav-2)
+const scrollToSection = (event, targetSelector) => {
+  event.preventDefault();
+  const targetSection = document.querySelector(targetSelector);
+
+  // Dynamically calculate the height of both navbars (header and nav-2)
+  const headerHeight = document.querySelector("header").offsetHeight || 0;
+  const nav2Height = document.querySelector(".nav-2").offsetHeight || 0;
+
+  // Calculate the total offset
+  const totalNavbarHeight = headerHeight + nav2Height;
+
+  // Get the target position of the section, but adjust it to center the section in the viewport
+  const targetPosition = targetSection.offsetTop - totalNavbarHeight;
+
+  // Use window.scrollTo to scroll to the adjusted target position
+  window.scrollTo({
+    top: targetPosition,
+    behavior: 'smooth'
+  });
+};
+
+
+
+
+
+
+  // Desktop-Specific Behavior
   const nav2 = document.querySelector(".nav-2");
   const header = document.querySelector("header");
 
+  // Create a placeholder to prevent layout shifts
   const placeholder = document.createElement("div");
   placeholder.style.height = `${nav2.offsetHeight}px`;
   placeholder.style.display = "none";
   nav2.parentNode.insertBefore(placeholder, nav2);
 
   const handleScroll = () => {
-    const nav2Rect = nav2.getBoundingClientRect();
     const headerHeight = header.offsetHeight;
+    const nav2OffsetTop = nav2.offsetTop;
 
-    if (window.scrollY > nav2.offsetTop - headerHeight) {
-      nav2.classList.add("fixed");
-      nav2.style.top = `${headerHeight}px`;
-      placeholder.style.display = "block";
-    } else {
-      nav2.classList.remove("fixed");
-      nav2.style.top = "initial";
-      placeholder.style.display = "none";
+    // Check if the page is in desktop view (>768px)
+    if (window.innerWidth > 768) {
+      if (window.scrollY > nav2OffsetTop - headerHeight) {
+        nav2.classList.add("fixed");
+        nav2.style.top = `${headerHeight}px`; // Position below the header
+        placeholder.style.display = "block"; // Prevent layout shift
+      } else {
+        nav2.classList.remove("fixed");
+        nav2.style.top = "initial"; // Reset positioning
+        placeholder.style.display = "none"; // Hide placeholder
+      }
     }
   };
 
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();  // Initial check for nav-2 position
-
-  // 4. Smooth Scroll for Navigation Links (for both header and nav-2)
-  const scrollToSection = (event, targetSelector) => {
-    event.preventDefault();
-    const targetSection = document.querySelector(targetSelector);
-
-    // Adjust scroll position based on fixed navbar height (160px or any desired value)
-    const navbarHeight = 160; // Adjust this value to match the height of your navbar
-    const targetPosition = targetSection.offsetTop - navbarHeight;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    });
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      // Reset styles for mobile
+      nav2.classList.remove("fixed");
+      nav2.style.top = "";
+      placeholder.style.display = "none";
+    } else {
+      // Re-apply scroll handling for desktop
+      handleScroll();
+    }
   };
+
+  // Attach scroll and resize handlers
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleResize);
+
+  // Initial check on load
+  handleResize();
+
+
+
 
   // 5. Set Active State for Header and Nav-2 Links
   const headerLinks = document.querySelectorAll('header nav a');
@@ -93,36 +147,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 6. Scroll event to update active link based on current visible section
-  window.addEventListener('scroll', () => {
-    let currentSection = '';
-    
-    // Remove active classes from all links when scrolling
-    removeActiveClasses(headerLinks);
-    removeActiveClasses(nav2Links);
+  
+ // 6. Scroll event to update active link based on current visible section
+window.addEventListener('scroll', () => {
+  let currentSection = '';
+  
+  // Dynamically calculate the total navbar height
+  const headerHeight = document.querySelector("header").offsetHeight || 0;
+  const nav2Height = document.querySelector(".nav-2").offsetHeight || 0;
+  const totalNavbarHeight = headerHeight + nav2Height;
+  
+  // Find the currently visible section
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - totalNavbarHeight;
+    const sectionBottom = sectionTop + section.offsetHeight;
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 200; // Adjust based on desired offset
-      const sectionBottom = sectionTop + section.offsetHeight;
-
-      if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-
-    // Add active class to the corresponding link based on the current section
-    headerLinks.forEach(link => {
-      if (link.getAttribute('href').substring(1) === currentSection) {
-        addActiveClass(link);
-      }
-    });
-
-    nav2Links.forEach(link => {
-      if (link.getAttribute('href').substring(1) === currentSection) {
-        addActiveClass(link);
-      }
-    });
+    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+      currentSection = section.getAttribute('id');
+    }
   });
+
+  // Remove active class from all links
+  removeActiveClasses(headerLinks);
+  removeActiveClasses(nav2Links);
+
+  // Add active class to the matching links in both navbars
+  headerLinks.forEach(link => {
+    if (link.getAttribute('href').substring(1) === currentSection) {
+      addActiveClass(link);
+    }
+  });
+
+  nav2Links.forEach(link => {
+    if (link.getAttribute('href').substring(1) === currentSection) {
+      addActiveClass(link);
+    }
+  });
+});
+
 
   // 7. Video Modal Script 
   const videoTrigger = document.querySelector('.video-trigger');
@@ -183,87 +245,284 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 9. Attractions Slider Script 
-  const sliderImages = document.querySelector(".slider-images");
-  const sliderSlides = document.querySelectorAll(".slider-slide");
-  const bullets = document.querySelectorAll(".bullet");
-  const prevButton = document.querySelector(".prev-slide");
-  const nextButton = document.querySelector(".next-slide");
 
-  let currentIndex = 0;
-
-  function updateSlider() {
-    sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-    bullets.forEach((bullet, index) => {
-      bullet.classList.toggle("active", index === currentIndex);
-    });
-  }
-
-  function showNextSlide() {
-    currentIndex = (currentIndex + 1) % sliderSlides.length;
-    updateSlider();
-  }
-
-  function showPrevSlide() {
-    currentIndex = (currentIndex - 1 + sliderSlides.length) % sliderSlides.length;
-    updateSlider();
-  }
-
-  bullets.forEach((bullet, index) => {
-    bullet.addEventListener("click", () => {
-      currentIndex = index;
+    // Function to initialize a slider
+    function initializeSlider(container) {
+      const sliderImages = container.querySelector(".slider-images");
+      const sliderSlides = container.querySelectorAll(".slider-slide");
+      const bullets = container.querySelectorAll(".bullet");
+      const prevButton = container.querySelector(".prev-slide");
+      const nextButton = container.querySelector(".next-slide");
+  
+      let currentIndex = 0;
+  
+      function updateSlider() {
+        sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        bullets.forEach((bullet, index) => {
+          bullet.classList.toggle("active", index === currentIndex);
+        });
+      }
+  
+      function showNextSlide() {
+        currentIndex = (currentIndex + 1) % sliderSlides.length;
+        updateSlider();
+      }
+  
+      function showPrevSlide() {
+        currentIndex = (currentIndex - 1 + sliderSlides.length) % sliderSlides.length;
+        updateSlider();
+      }
+  
+      bullets.forEach((bullet, index) => {
+        bullet.addEventListener("click", () => {
+          currentIndex = index;
+          updateSlider();
+        });
+      });
+  
+      nextButton.addEventListener("click", showNextSlide);
+      prevButton.addEventListener("click", showPrevSlide);
+  
+      // Set initial active state
+      sliderSlides[0].classList.add("active");
+      bullets[0].classList.add("active");
       updateSlider();
-    });
+    }
+  
+    // Initialize sliders for each section
+    const attractionSlider = document.querySelector("#Attractions");
+    const activitySlider = document.querySelector("#Activities");
+    const eventSlider = document.querySelector("#Events");
+    const eatdrinkSlider = document.querySelector("#Eat_Drink");
+  
+    if (attractionSlider) initializeSlider(attractionSlider);
+    if (activitySlider) initializeSlider(activitySlider);
+    if (eventSlider) initializeSlider(eventSlider);
+    if (eatdrinkSlider) initializeSlider(eatdrinkSlider);
+
+
+
+// 11. Modals script
+
+// Select all required elements
+const modals = document.querySelectorAll('.attraction-modal');
+const closeButtons = document.querySelectorAll('.modal-close');
+const body = document.querySelector('body');
+const cards = document.querySelectorAll('.attraction-card'); // Ensure this matches your card class
+
+let scrollPosition = 0; // Variable to store the scroll position
+
+// Open the modal when clicking the image card
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const targetModalId = card.getAttribute('data-modal-target'); // Get the modal ID
+    const targetModal = document.querySelector(targetModalId); // Select the modal
+
+    if (targetModal) {
+      // Save the current scroll position
+      scrollPosition = window.scrollY;
+
+      // Lock scroll by setting body position and overflow
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollPosition}px`;
+      body.style.width = '100%';
+      body.classList.add('modal-open'); // Disable page scroll
+
+      targetModal.classList.add('show'); // Show the modal
+    } else {
+      console.error(`Modal with ID "${targetModalId}" not found.`);
+    }
   });
+});
 
-  nextButton.addEventListener("click", showNextSlide);
-  prevButton.addEventListener("click", showPrevSlide);
+// Close the modal when clicking the close button
+closeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.attraction-modal'); // Get the closest modal
+    if (modal) {
+      modal.classList.remove('show'); // Hide the modal
 
-  // 10. Set Initial Active State for Attractions Slider
-  sliderSlides[0].classList.add('active');
-  bullets[0].classList.add('active');
+      // Unlock scroll by restoring body position
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      body.classList.remove('modal-open'); // Re-enable page scroll
+
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
+    }
+  });
+});
+
+// Close the modal if the user clicks outside the modal content
+modals.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show'); // Hide the modal
+
+      // Unlock scroll by restoring body position
+      body.style.position = '';
+      body.style.top = '';
+      body.style.width = '';
+      body.classList.remove('modal-open'); // Re-enable page scroll
+
+      // Restore scroll position
+      window.scrollTo(0, scrollPosition);
+    }
+  });
+});
 
 
 
 
 
-  //11. Modals script
+// 12. Privacy Policy Modal Script
 
-  
- 
-    const modals = document.querySelectorAll('.attraction-modal');
-    const closeButtons = document.querySelectorAll('.modal-close');
-    const body = document.querySelector('body');
-  
-    // Open the modal when clicking the image card
-    document.querySelectorAll('.attraction-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        const targetModal = document.querySelector(card.getAttribute('data-modal-target'));
-        targetModal.classList.add('show'); // Show the modal
-        body.classList.add('modal-open'); // Disable page scroll
-      });
+// 1. Select the modal trigger links
+const aboutModalTrigger = document.getElementById('about-modal-trigger');
+const privacyPolicyTrigger = document.getElementById('privacy-policy-link');
+
+// 2. Select the modals and close buttons
+const aboutModal = document.getElementById('about-modal');
+const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+const aboutModalClose = document.getElementById('about-modal-close');
+const privacyPolicyClose = document.getElementById('close-privacy-policy');
+
+// 3. Select the footer to retain the scroll position
+const footer = document.querySelector('footer');
+
+// 4. Lock scroll by setting overflow: hidden to the body
+const lockScroll = () => {
+  document.body.style.overflow = 'hidden'; // Disable scrolling
+};
+
+// 5. Restore scroll by resetting overflow to ""
+const unlockScroll = () => {
+  document.body.style.overflow = ''; // Re-enable scrolling
+};
+
+// 6. Open the About Us modal when its trigger is clicked
+aboutModalTrigger.addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent the link from navigating
+  aboutModal.classList.add('show'); // Show the modal
+  lockScroll(); // Disable scrolling
+});
+
+// 7. Open the Privacy Policy modal when its trigger is clicked
+privacyPolicyTrigger.addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent the link from navigating
+  privacyPolicyModal.classList.add('show'); // Show the modal
+  lockScroll(); // Disable scrolling
+});
+
+// 8. Close the About Us modal when the close button is clicked
+aboutModalClose.addEventListener('click', () => {
+  aboutModal.classList.remove('show'); // Hide the modal
+  unlockScroll(); // Re-enable scrolling
+  // Scroll the page back to the footer
+  footer.scrollIntoView({ behavior: 'smooth' });
+});
+
+// 9. Close the Privacy Policy modal when the close button is clicked
+privacyPolicyClose.addEventListener('click', () => {
+  privacyPolicyModal.classList.remove('show'); // Hide the modal
+  unlockScroll(); // Re-enable scrolling
+  // Scroll the page back to the footer
+  footer.scrollIntoView({ behavior: 'smooth' });
+});
+
+// 10. Close the modal if user clicks outside the modal content
+[aboutModal, privacyPolicyModal].forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show'); // Hide the modal
+      unlockScroll(); // Re-enable scrolling
+      // Scroll the page back to the footer
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+
+
+//Media Quieries
+
+const hamburgerMenu = document.getElementById('hamburger-menu');
+    const leftNav = document.querySelector('.left-nav');
+    
+    hamburgerMenu.addEventListener('click', () => {
+      leftNav.classList.toggle('active');
     });
-  
-    // Close the modal when clicking the close button
-    closeButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        button.closest('.attraction-modal').classList.remove('show'); // Close the modal
-        body.classList.remove('modal-open'); // Enable page scroll
-      });
-    });
-  
-    // Close the modal if the user clicks outside the modal content (on the overlay)
-    modals.forEach(modal => {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('show');
-          body.classList.remove('modal-open');
-        }
-      });
-    });
 
-  
 
-  
+    // Close the menu when a menu item is clicked
+const menuItems = document.querySelectorAll('.left-nav ul li a');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    leftNav.classList.remove('active'); // Hide the menu
+  });
+});
+
+
+
+
+
+// JavaScript to remove the black bars and ensure that each video fills its container
+
+function adjustVideos() {
+  const videoContainers = document.querySelectorAll('.video-container'); // Select all video containers
+
+  videoContainers.forEach((videoContainer) => {
+    const iframe = videoContainer.querySelector('iframe');
+    
+    if (!iframe) return; // Skip if there's no iframe in this container
+    
+    // Get the aspect ratio of the video (16:9)
+    const aspectRatio = 9 / 16;
+
+    // Calculate the height based on the width of the container
+    const containerWidth = videoContainer.offsetWidth;
+    const videoHeight = containerWidth * aspectRatio;
+
+    // Set the height of the video container to match the aspect ratio
+    videoContainer.style.height = videoHeight + 'px';
+
+    // Make sure the iframe fills the container completely
+    iframe.style.height = '100%';
+    iframe.style.width = '100%';
+  });
+}
+
+// Adjust video sizes on window resize
+window.addEventListener('resize', adjustVideos);
+
+// Run it initially
+adjustVideos();
+
+
+
+// Ensure the first image is visible immediately on load
+const slider = document.querySelector('.attractions-slider');
+
+// Reset the scroll position
+function resetSlider() {
+  slider.scrollLeft = 0; // Scroll to the first slide immediately
+}
+
+// Call resetSlider on load and resize
+window.addEventListener('load', resetSlider);
+window.addEventListener('resize', resetSlider);
+
+
+
+
+
+
+
+
+
   
 });
 

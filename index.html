@@ -4,45 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Example City</title>
+  <title>Stockholm City</title>
   <link href="styles.css" rel="stylesheet" type="text/css" media="all">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Other meta tags and stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+
   
 
 
 </head>
 
-<body>
+<body id="home">
   <header>
     <nav>
-        <div class="left-nav">
-            <ul>
-                <li class="home-icon active"><a href="index.html"><i class="fas fa-home"></i></a></li>
-                <span class="separator">|</span>
-                <li><a href="#Attractions">Attractions</a></li>
-                <span class="separator">|</span>
-                <li><a href="#Activities">Activities</a></li>
-                <span class="separator">|</span>
-                <li><a href="#Events">Events</a></li>
-                <span class="separator">|</span>
-                <li><a href="#Eat & Drink">Eat & Drink</a></li>
-                <span class="separator">|</span>
-                <li><a href="#Contact">Contact</a></li>
-                
+<!-- Left: Stockholm City | Right: Hamburger Menu -->
+<div class="header-content">
+  <div class="city-name">
+    <span class="city-main">Stockholm</span>
+    <span class="city-sub">The Nordic Venecia</span>
+  </div>
+  
+  <div id="hamburger-menu" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
 
-            </ul>
-        </div>
+      <div class="left-nav">
+        <ul>
+          <li class="home-icon active"><a href="#home"><i class="fas fa-home"></i></a></li>
+          <span class="separator">|</span>
+          <li><a href="#Attractions">Attractions</a></li>
+          <span class="separator">|</span>
+          <li><a href="#Activities">Activities</a></li>
+          <span class="separator">|</span>
+          <li><a href="#Events">Events</a></li>
+          <span class="separator">|</span>
+          <li><a href="#Eat_Drink">Eat & Drink</a></li>
+          <span class="separator">|</span>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </div>
+      
         <div class="right-nav">
             <p>
-                <span><i class="fas fa-phone-alt"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></span>
+                <span><i class="fas fa-phone-alt"></i> <a href="tel:+46707886496">+46 707 886 496</a></span>
                 <span class="separator">|</span>
-                <span><i class="fas fa-envelope"></i> <a href="mailto:info@examplecity.com">info@examplecity.com</a></span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:elli.corleone@yahoo.com">elli.corleone@yahoo.com</a></span>
             </p>
         </div>
+        
     </nav>
 </header>
 
@@ -83,6 +99,8 @@
   <!-- Video -->
   <div class="video-container">
     <iframe 
+    width="100%" 
+    height="100%"
       src="https://www.youtube.com/embed/5fcEntH5a5I" 
       title="Stockholm History"
       frameborder="0"
@@ -293,12 +311,13 @@
 
 <section id="Attractions">
   <h2>Attractions</h2>
+  <div class="slider-controls">
+    <button class="prev-slide">&lt;</button>
+    <button class="next-slide">&gt;</button>
+  </div>
   <div class="attractions-slider">
      <!-- Slider Controls -->
-     <div class="slider-controls">
-      <button class="prev-slide">&lt;</button>
-      <button class="next-slide">&gt;</button>
-    </div>
+    
     <div class="slider-images">
       <!-- Slide 1 -->
       <div class="slider-slide">
@@ -339,7 +358,7 @@
         <div class="attraction-card" data-modal-target="#nobel-museum-modal">
           <img src="images/nobelprice.jpg" alt="Nobel Museum">
           <h4>Nobel Museum</h4>
-          <p>SEK 140.00 / person normally</p>
+          <p>SEK 150.00 / person normally</p>
         </div>
         <div class="attraction-card" data-modal-target="#tekniska-modal">
           <img src="images/tekniska.jpg" alt="Tekniska Museum">
@@ -392,7 +411,6 @@
         <li>Vikings: The True Story</li>
       </ul>
       <p>Did you know?</p>
-      <p>Did you know?</p>
 <p>The Viking Museum showcases real Viking ships, some of which are over 1,000 years old!</p>
 
       <a href="https://thevikingmuseum.com/en/" target="_blank">More Info / Buy Tickets</a>
@@ -403,16 +421,17 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>Stockholm Hop-On Hop-Off Bus</h3>
-      <img src="hopon-bus.jpg" alt="Hop-On Hop-Off Bus">
-      <p>It’s one of the easiest ways to see all the attractions in one go or make your own itinerary and hop on and off at your favorite attractions with over 20 stops. There are, including the , </p>
+      <img src="images/hoponhopoff.jpg" alt="Hop-On Hop-Off Bus">
+      <p>It’s one of the easiest ways to see all the attractions in one go or make your own itinerary and hop on and off at your favorite attractions with over 20 stops.</p>
       <p>Highlights:</p>
       <ul>
         <li>The bus stops at all of the famous sites in Stockholm:</li>
         <li>Vasa Museum, Skansen, Old Town, Nordiska, Fotografiska, and several popular shopping districts.</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>The Hop-On Hop-Off bus offers a multilingual audio guide, so you can learn about the city in your preferred language while enjoying the ride!</p>
+
+      <a href="https://www.stromma.com/en-se/stockholm/sightseeing/sightseeing-by-bus/hop-on-hop-off/?mtm_source=google&mtm_medium=cpc&mtm_campaign=p-search-en-se-stockholm-sightseeing%20by%20bus&mtm_content=%2Fen-se%2Fstockholm%2Fsightseeing%2Fsightseeing-by-bus%2Fhop-on-hop-off%2F&gad_source=1&gclid=EAIaIQobChMIvMiA1-vUigMVjBCiAx0TJy1FEAAYAiAAEgL55fD_BwE" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
 
@@ -420,19 +439,21 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>The Royal Palace</h3>
-      <img src="royal-palace-interior.jpg" alt="The Royal Palace Interior">
+      <img src="images/royalpalace-interior.jpg" alt="The Royal Palace Interior">
       <p>
-        Explore the official residence of the Swedish monarch with exquisite rooms and fascinating history.
+        See how the Swedish Royals live and the secrets of this stunning royal residence and marvel at the beautiful baroque architecture of the palace's 600 rooms and 11 floors.
+        Visit one of the most impressive palaces in the world, the Royal Palace of Stockholm. The palace dates back to the 18th century and is one of the most interesting historic buildings in Stockholm. Uncover the rich past of the Swedish royal family and learn about the day-to-day lives of the modern monarchy.
       </p>
       <p>Highlights:</p>
       <ul>
-        <li>The wooden statue of St George and the Dragon</li>
-        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
-        <li>17th-century French baroque style pulpit</li>
+        <li>The Royal Apartments</li>
+        <li>The Tre Kronor Museum</li>
+        <li>The Treasury</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>The architecture of the palace is in the Baroque style, designed by the architect Nicodemus Tessin.</p>
+      <p>The Bernadotte Library contains the royal book collection with approximately 100,000 books.</p>
+      <a href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/the-royal-palace.html" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
   
@@ -440,19 +461,23 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>The Vasa Museum</h3>
-      <img src="vasa-museum-interior.jpg" alt="The Vasa Museum Interior">
+      <img src="images/vasa-interior.jpeg" alt="The Vasa Museum Interior">
       <p>
-        Discover the incredible story of the 17th-century ship that sank on its maiden voyage and was recovered intact.
+        Visit the Vasa Museum and experience one of the biggest cultural attractions in Stockholm, Sweden - the warship Vasa - which sank in 1628 on its maiden voyage from Stockholm. Learn about the history of the ship through fascinating exhibitions and see the restored wreck that was salvaged from beneath the water.
       </p>
+      <p>Along with incredibly detailed exhibitions, you can join a guided tour and learn about the sinking of this magnificent ship, the years it took to salvage it, and then the long restoration process to turn Vasa into what we see today</p>
       <p>Highlights:</p>
       <ul>
-        <li>The wooden statue of St George and the Dragon</li>
-        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
-        <li>17th-century French baroque style pulpit</li>
+        <li>The world's only preserved 17th-century ship, a unique glimpse into naval history.</li>
+        <li>Beautifully intricate carvings and original details on the Vasa's hull.</li>
+        <li>Interactive exhibitions showcasing life onboard and the science behind the ship's preservation.</li>
+        <li>Engaging guided tours that delve into the tragic yet fascinating story of the Vasa.</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>The battleship Vasa sank in 1628 after just sailing just over 1300m.</p>
+      <p>She lay below the surface for 333 years until being discovered by Anders Franzén and salvaged in 1961.</p>
+      <p>Some blame King Gustav II Adolf for the disaster, who ordered a large ship with too many heavy-caliber cannons for the ship’s dimensions. Others blame Master shipwright Henrik Hybertsson who was inexperienced at building ships with two gundecks.</p>
+      <a href="https://www.vasamuseet.se/en" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
 
@@ -460,19 +485,28 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>Skansen</h3>
-      <img src="skansen-interior.jpg" alt="Skansen Interior">
+      <img src="images/skansen-in.jpg" alt="Skansen Interior">
       <p>
-        The world's first open-air museum showcasing Sweden's history and wildlife.
+        Set on Stockholm’s Djurgården island, Skansen boasts over 150 buildings that have been collected from all over Sweden, dismantled and reassembled here. Step back in time to meet the people who would have lived and worked in them in centuries past. There’s even a full-scale replica of a 19th-century Swedish town to explore, where traditional craftspeople ply their trades and demonstrate their skills as cobblers, tanners, glass-blowers and more, in full period costume.
       </p>
+      <p>
+        Stroll through pretty gardens, visit the old-fashioned fairground with its charming swings and carousels and head to the open-air zoo to spot Nordic wildlife including brown bears, moose and otters.</p>
+
+      <p>Children will adore the kids’ zoo, where there’s a range of domestic animals including rabbits and guinea pigs, as well as a classic car track.</p>
+
+      <p>Skansen also plays host to a huge number of seasonal events and activities. Visit in summer for traditional folk dancing, plus jazz concerts every Monday through August. There's a traditional 18th-century-style Autumn harvest festival on the last weekend in September. In winter, the central square twinkles with fairy lights and the air is filled with the delicious smell of mulled wine and roast chestnuts as the popular annual Christmas market gets into full swing. Expect unique local handicrafts, festive church concerts and much dancing and merry-making around the Christmas tree. </p>
       <p>Highlights:</p>
       <ul>
-        <li>The wooden statue of St George and the Dragon</li>
-        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
-        <li>17th-century French baroque style pulpit</li>
+        <li>Skansen history</li>
+        <li>Fun for kids</li>
+        <li>Christmas market</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>Skansen, founded in 1891, is the world’s oldest open-air museum.</p>
+      <p>Its creator, Artur Hazelius, aimed to preserve Swedish rural traditions and lifestyles.</p>
+      <p>Some of the buildings date back to the 14th century and were transported piece by piece to the site.</p>
+
+      <a href="https://skansen.se/" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
 
@@ -480,19 +514,21 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>Nobel Prize Museum</h3>
-      <img src="nobel-museum-interior.jpg" alt="Nobel Prize Museum Interior">
+      <img src="images/nobel-price-in.jpeg" alt="Nobel Prize Museum Interior">
       <p>
-        Explore the lives and works of Nobel Prize laureates and the impact of their achievements.
+        The prestigious Nobel Prize is a world event and, since 1901, has been awarded to more than 950 people (and organizations) for their achievements in medicine, literature, physics, chemistry, economics and peace. Learn about the Nobel Laureates and the founder, Alfred Nobel, on a guided tour of the museum, or if you want to go at your own pace, opt for a self-guided tour with audio commentary available on your phone.
       </p>
       <p>Highlights:</p>
       <ul>
-        <li>The wooden statue of St George and the Dragon</li>
-        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
-        <li>17th-century French baroque style pulpit</li>
+        <li>Permanent exhibition –  These things changed the world</li>
+        <li>The museum shop</li>
+        <li>Bistro Nobel</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>The museum in Stockholm was founded in 2001, the same year as the Nobel Prize celebrated 100 years.</p>
+      <p>Alfred Nobel was a Swedish chemist, engineer, innovator, and entrepreneur who spoke five languages.</p>
+      <p>Nobel left 31 million SEK in his will to fund Nobel Prizes to award those of outstanding achievements in the future.</p>
+      <a href="https://nobelprizemuseum.se/" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
 
@@ -500,19 +536,20 @@
     <div class="modal-content">
       <button class="modal-close">&times;</button>
       <h3>Tekniska - National Museum of Science and Technology</h3>
-      <img src="tekniska-interior.jpg" alt="Tekniska Museum Interior">
+      <img src="images/tekniska-in.jpg" alt="Tekniska Museum Interior">
       <p>
-        Learn about Sweden's innovations and technological achievements at this hands-on museum.
-      </p>
+        From the inventions and discoveries that have shaped our society, to visions of the future, Tekniska explores science and technology through fun and interactive exhibits that'll keep you (and the kids!) entertained for hours. </p>
+      <p>
+        See for yourself how technology and innovation can be the key to creating a sustainable future by visiting the museum's fossil-free city of tomorrow or explore the worlds of gaming, AI and math at the museum's other fascinating exhibitions. </p>
       <p>Highlights:</p>
       <ul>
-        <li>The wooden statue of St George and the Dragon</li>
-        <li>Vädersolstavlan ("The Sun Dog Painting")</li>
-        <li>17th-century French baroque style pulpit</li>
+        <li>Play beyond play</li>
+        <li>MegaMind</li>
       </ul>
       <p>Did you know?</p>
-      <p>The church was officially named the Church of St. Nicholas but is now known as Storkyrkan, which means the Big Church.</p>
-      <a href="https://example.com/storkyrka" target="_blank">More Info / Buy Tickets</a>
+      <p>One in ten people on earth has played a Swedish computer game</p>
+      <p>Many Swedish inventors are considered some of the greatest scientists of all time, including Emanuel Swedenborg (1688-1772) who has many ground-breaking scientific writings and sketching to his name, and Anders Celsius best known for his Celsius temperature scale, which is used in thermometers to this day.</p>
+      <a href="https://www.tekniskamuseet.se/" target="_blank">More Info / Buy Tickets</a>
     </div>
   </div>
   
@@ -522,61 +559,641 @@
 
 
 
+<section id="Activities">
+  <h2>Activities</h2>
+  <div class="slider-controls">
+    <button class="prev-slide">&lt;</button>
+    <button class="next-slide">&gt;</button>
+  </div>
+  <div class="attractions-slider">
+    <!-- Slider Controls -->
+    
+    <div class="slider-images">
+      <!-- Slide 1 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#activity1-modal">
+          <img src="images/activity1.jpeg" alt="Activity 1">
+          <h4>Skiing in Stockholm</h4>
+          <p>SEK 300.00 / person normally</p>
+          
+        </div>
+        <div class="attraction-card" data-modal-target="#activity2-modal">
+          <img src="images/activity2.jpg" alt="Activity 2">
+          <h4>Sauna in Stockholm </h4>
+          <p>SEK 300.00 / person normally</p>
+         
+        </div>
+        <div class="attraction-card" data-modal-target="#activity3-modal">
+          <img src="images/activity3.jpg" alt="Activity 3">
+          <h4>Hella's orientation</h4>
+          <p>SEK 300.00 / person normally</p>
 
-
-
-
-
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-      <div>
-        <h3>Tourist Information</h3>
-        <p>Find all the information you need for your trip to Example City, from attractions to accommodations.</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#activity4-modal">
+          <img src="images/activity4.jpg" alt="Activity 4">
+          <h4>Stockholm for kids</h4>
+          <p>SEK 300.00 / person normally</p>
+        </div>
       </div>
-      <div>
-        <h3>Public Transport</h3>
-        <p>Get around the city with ease using our extensive public transport network.</p>
-      </div>
-      <div>
-        <h3>Events</h3>
-        <p>Stay up-to-date with the latest events and festivals happening in Example City.</p>
-      </div>
-    </section>
 
-    <!-- Latest News Section -->
-    <section id="news" class="latest-news">
-      <h2>Latest News</h2>
-      <article>
-        <h3>New Park Opening Soon</h3>
-        <p>We are excited to announce the opening of a new park in downtown Example City. Join us for the grand opening!</p>
-        <a href="#">Read more</a>
-      </article>
-      <article>
-        <h3>Annual Festival</h3>
-        <p>The Annual Example City Festival is coming soon! Don't miss out on the fun activities and performances.</p>
-        <a href="#">Read more</a>
-      </article>
-      <article>
-        <h3>City's Green Initiative</h3>
-        <p>Example City is launching a new initiative to make the city greener. Learn more about our sustainability efforts.</p>
-        <a href="#">Read more</a>
-      </article>
-    </section>
+      <!-- Slide 2 -->
+
+
+
+
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#activity5-modal">
+          <img src="images/activity5.jpg" alt="Activity 5">
+          <h4>Fly a hot air balloon in Stockholm</h4>
+          <p>SEK 300.00 / person normally</p>
+          
+        </div>
+        <div class="attraction-card" data-modal-target="#activity6-modal">
+          <img src="images/activity6.jpg" alt="Activity 6">
+          <h4>Weekend cruise with Viking Glory</h4>
+          <p>SEK 300.00 / person normally</p>
+         
+        </div>
+        <div class="attraction-card" data-modal-target="#activity7-modal">
+          <img src="images/activity7.jpeg" alt="Activity 7">
+          <h4>Boat Tour to the Archipelago</h4>
+          <p>SEK 300.00 / person normally</p>
+
+        </div>
+        <div class="attraction-card" data-modal-target="#activity8-modal">
+          <img src="images/activity8.jpg" alt="Activity 8">
+          <h4>Junibacken</h4>
+          <p>SEK 300.00 / person normally</p>
+        </div>
+      </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bullet controls under the slider -->
+  <div class="bullet-controls">
+    <span class="bullet active"></span>
+    <span class="bullet"></span>
+  </div>
+
+  <!-- Modals -->
+  <div id="activity1-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Skiing in Stockholm</h3>
+      <img src="images/activity1.jpeg" alt="Activity 1">
+      <p>When snow falls over Stockholm in winter, the city turns into a winter wonderland – it’s time to go skiing!</p>
+        <p>You’ll find several skiing tracks and ski slopes in the Stockholm area. If you prefer cross-country sk<ul>
+            <li>
+              <a href="https://motionera.stockholm/hitta-skidspar/skidspar/agesta-skidspar/" target="_blank" rel="noopener noreferrer">
+                Ågesta ski tracks (artificial snow)
+              </a>
+            </li>
+            <li>
+              <a href="https://hellasgarden.se/en/aktiviteter/hyra-langdskidor/" target="_blank" rel="noopener noreferrer">
+            Rent cross-country skis at Hellasgården (natural snow)
+          </a>
+          </li>
+          </ul>
+    </div>
+  </div>
+
+  <div id="activity2-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Sauna in Stockholm</h3>
+      <img src="images/activity2.jpg" alt="Activity 2">
+      <p>We are a member sauna in Vinterviken that opened its doors in August 2022. Before we opened, 100 people contributed a fantastic 100,000 kroner to the construction of the sauna. The sauna is owned by STHLM Sauna but managed by us members together. We currently have 1000 members and we are adding new members all the time. Our goal is to spread sauna culture to as many people as possible. With us, everyone should be able to bast, regardless of background and wallet. That's why we keep the prices low and the times long. </p>
+      <p>For every purchase in our sauna, you contribute one percent to remove CO2 from the atmosphere. </p>
+      <a href="https://www.sthlmsauna.se/om-bastun/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+
   
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="footer-links">
-      <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
+  <div id="activity3-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Hella's orientation</h3>
+      <img src="images/activity3.jpg" alt="Activity 2">
+      <p>Start orientation now!</p>
+      <p>Either by coming to our training sessions on Tuesdays at 6pm or through our annual beginner's course. Regardless of the method, call or email us and we know you will come</p>
+      <p>We organize a beginner's course every spring, in April and May.</p>
+      <p>After the course, you will have sufficient knowledge to take part more independently in our trainings, which are held all year round, on Tuesdays and sometimes on Thursdays and Sundays.</p>
+      <a href="https://www.hellasorientering.se/tranatavla/borja-orientera/" target="_blank" rel="noopener noreferrer">More Info</a>
     </div>
-    <p>Contact us: info@examplecity.com</p>
-    <p>&copy; 2024 Example City. All rights reserved.</p>
+  </div>
+
+  <div id="activity4-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Stockholm for kids</h3>
+      <img src="images/activity4.jpg" alt="Activity 4">
+      <p>
+        Stockholm is a child-friendly city. Children's attractions and museums are abundant with activities and exhibits, especially for children. Distances are short and the public transportation system takes you everywhere you want to go. Buses are even free if you're bringing a stroller. </p>
+      <p>The green (Gröna Lund) island of Djurgården is the perfect place to start a family vacation. Many of Stockholm's most popular children's attractions are located here, within walking distance from one another.</p>
+      <a href="https://www.gronalund.com/https://www.hellasorientering.se/tranatavla/borja-orientera/" target="_blank" rel="noopener noreferrer">More Info</a>
+    </div>
+  </div>
+
+  <div id="activity5-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3> Fly a hot air balloon in Stockholm</h3>
+      <img src="images/activity5.jpg" alt="Activity 5">
+      <p>
+        DreamBalloon regularly flies over Stockholm.
+        A flight with DreamBalloon can take you over treetops and rooftops in Stockholm's inner city, Danderyd, Djursholm, Lidingö, Huddinge, Ekerö, Södertälje, Kungsängen, Solna and everything in between. In addition, we are often spoiled by seeing some of the archipelago's islands, Stockholm's peaks and towers and much, much more. </p>
+      <p>The green (Gröna Lund) island of Djurgården is the perfect place to start a family vacation. Many of Stockholm's most popular children's attractions are located here, within walking distance from one another.</p>
+      <p>With 25 years of experience in ballooning, we can say one thing for sure: Whichever area you choose, the flight will be a memory for life. We look forward to experiencing our beautiful landscape from above together with you!</p>
+      <a href="https://dreamballoon.se/ballongflygning-stockholm/?gad_source=1&gclid=EAIaIQobChMI9Knjkt_cigMVIE-RBR1rxAkmEAAYAiAAEgIBafD_BwE" target="_blank" rel="noopener noreferrer">More Info</a>
+    </div>
+  </div>
+
+
+  <div id="activity6-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Weekend cruise with Viking Glory</h3>
+      <img src="images/activity6.jpg" alt="Activity 6">
+      <p>Welcome aboard the Baltic Sea's most modern cruise ship. Take someone you like and glide through Stockholm's beautiful archipelago. Viking Glory is specially designed to provide an extra luxurious cruising experience and really must be experienced.</p>
+      <p>Starting in central Stockholm, a wonderful 24-hour cruise to Turku awaits. Glory is the Baltic Sea's most modern ship and one of the world's most climate-smart cruise ships. Specially designed to provide an extra luxurious cruise experience, here the journey is the goal.</p>
+      <a href="https://www.liveit.se/upplevelser/upplevelsepresenter-helgkryssning-viking-glory" target="_blank" rel="noopener noreferrer">More Info</a>
+    </div>
+  </div>
+ 
+ 
+  <div id="activity7-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Boat Tour to the Archipelago</h3>
+      <img src="images/activity7.jpeg" alt="Activity 7">
+      <p>We warmly recommend a visit to the archipelago’s idyllic capital of Vaxholm. The harbour and the main street are the beating heart of the town, with delightful shops and art galleries, as well as charming cafés and restaurants. Explore the idyllic little town and stroll through the old quarter, with its quaint pastel-painted Edwardian wooden houses. Pass the main square and admire the town hall with its distinctive onion-shaped dome. 
+        </p>
+      <p>There are several central bathing places in Vaxholm if you want to swim and sunbathe. One of the prettiest spots is Norrhamnsbadet, just below the picturesque rocks at Battery Park. There are rocks for sunbathing, a jetty and a small sandy beach that’s especially child friendly. Perfect for summer- and winter swim. </p>
+      <a href="https://www.stromma.com/en-se/stockholm/excursions/day-trips/boat-trip-to-vaxholm-from-stockholm/" target="_blank" rel="noopener noreferrer">More Info</a>
+    </div>
+  </div>
+
+
+
+  <div id="activity8-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Junibacken</h3>
+      <img src="images/activity8.jpg" alt="Activity 8">
+      <p>Junibacken is a fairytale world for children and their adults. Here you get to experience many of the environments and characters that Astrid Lindgren created and included in her books, and you will also find many other children's book heroes. They also change their exhibitions at regular intervals, to always be current. 
+        </p>
+      <p>Junibacken was inaugurated in 1996 and has since become one of Stockholm's five most visited places, with several hundred thousand visitors per year. The various exhibitions invite you to play and frolic in the world of fairy tales, and the stories are acted out like theatre. Here is also Sweden's largest selection of children's books - and an exciting fairy tale train. </p>
+      <a href="https://www.junibacken.se/en/" target="_blank" rel="noopener noreferrer">More Info</a>
+    </div>
+  </div>
+
+  <!-- Repeat modals for other activities as needed -->
+</section>
+
+
+
+
+<section id="Events">
+  <h2>Events</h2>
+  <div class="slider-controls">
+    <button class="prev-slide">&lt;</button>
+    <button class="next-slide">&gt;</button>
+  </div>
+  <div class="attractions-slider">
+  
+    <!-- Slider Controls -->
+   
+    <div class="slider-images">
+      <!-- Slide 1 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#event1-modal">
+          <img src="images/event1.jpg" alt="Event 1">
+          <h4>Ice Skating</h4>
+          <p>SEK 100.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event2-modal">
+          <img src="images/event2.jpeg" alt="Event 2">
+          <h4>The Sports Gala 2025</h4>
+          <p>SEK 300.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event3-modal">
+          <img src="images/event3.jpg" alt="Event 3">
+          <h4>André Rieu</h4>
+          <p>SEK 2990.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event4-modal">
+          <img src="images/event5.jpg" alt="Event 4">
+          <h4>Jeff Dunham</h4>
+          <p>SEK 544.00 / person normally</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#event5-modal">
+          <img src="images/event4.jpg" alt="Event 5">
+          <h4>Icehockey World 2025
+          </h4>
+          <p>SEK 1395.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event6-modal">
+          <img src="images/event6.jpg" alt="Event 6">
+          <h4>Kylie Minogue</h4>
+          <p>SEK 765.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event7-modal">
+          <img src="images/event7.jpg" alt="Event 7">
+          <h4>Techarena 2025</h4>
+          <p>SEK 379.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#event8-modal">
+          <img src="images/event8.jpg" alt="Event 8">
+          <h4>Disney On Ice</h4>
+          <p>SEK 170.00 / person normally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bullet controls under the slider -->
+  <div class="bullet-controls">
+    <span class="bullet active"></span>
+    <span class="bullet"></span>
+  </div>
+
+  <!-- Modals -->
+  <div id="event1-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Ice Skating in the City Center
+      </h3>
+      <img src="images/event1.jpg" alt="Event 1">
+      <p>The ice in Kungsträdgården lies shiny and smooth. It's time to lace up your skates and fill up your thermos with something hot and tasty. It is free to skate – and you can rent skates for a fee.</p>
+      <a href="https://motionera.stockholm/hitta-skridskois/skridskois/kungstradgardens-isbana/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  <div id="event2-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>The Sports Gala 2025</h3>
+      <img src="images/event2.jpeg" alt="Event 2">
+      <p>The Sports Gala is an annual live tribute to Swedish sport. At a festive gala dinner, Sweden's top athletes are rewarded for their fantastic achievements during the past year.</p>
+      <a href="https://strawberryarena.se/evenemang/sport/idrottsgalan-2025/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+
+  
+  <div id="event3-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Andrè Rieu</h3>
+      <img src="images/event3.jpg" alt="Event 3">
+      <p>André Rieu is returning to Sweden in 2025 with a brand-new spectacular show! Audiences can look forward to a magical evening featuring a mix of timeless classics from opera, musicals, and operettas, as well as beautiful movie melodies, popular songs, and, of course, romantic waltzes – all performed in Rieu’s unique style. Special guest: Emma Kok.</p>
+      <a href="https://aviciiarena.se/en/events/music-show/andre-rieu-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  
+  <div id="event4-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Jeff Dunham5</h3>
+      <img src="images/event5.jpg" alt="Event 4">
+      <p>Known for his lively characters like Walter, Peanut, Bubba J, and the unforgettable Achmed the Dead Terrorist, Dunham’s shows are a must-see for comedy fans of all ages. He holds the Guinness World Record for the most tickets sold for a stand-up comedy tour, with his "Spark of Insanity" tour selling nearly two million tickets across 400 venues worldwide. No wonder Slate calls him "the funniest comedian in the U.S." Dunham's unique blend of ventriloquism and sharp humor has earned him global acclaim and sold-out arenas worldwide. His Comedy Central specials, Netflix shows, and numerous TV appearances have made him one of the most recognized names in comedy.</p>
+      <a href="https://hovetarena.se/en/events/comedy-talks/jeff-dunham-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  
+  
+  <div id="event5-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>2025 IIHF ICE HOCKEY WORLD CHAMPIONSHIP</h3>
+      <img src="images/event4.jpg" alt="Event 5">
+      <p>From May 9-25, 2025, this prestigious tournament will take place at Globe Arena, Stockholm. Get ready for the 2025 IIHF Ice Hockey World Championship in Sweden and Denmark!</p>
+      <a href="https://aviciiarena.se/en/events/sport/2025-iihf-ice-hockey-world-championship-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  
+  <div id="event6-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Kylie Minogue</h3>
+      <img src="images/event6.jpg" alt="Event 6">
+      <p>Kylie Minogue is bringing her "Tension Tour" to Avicii Arena on June 25, 2025!</p>
+      <p>The superstar will finally return to Sweden for a concert in Stockholm on this date.</p>
+      <p>Experience new flavors, a lively atmosphere, and the perfect pre-show warm-up at the arena’s brand-new wine cellar, offering a fantastic view directly into the arena!</p>
+      <a href="https://aviciiarena.se/en/events/music-show/kylie-minogue-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+
+  <div id="event7-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Techarena 2025</h3>
+      <img src="images/event7.jpg" alt="Event 7">
+      <p>After last year's success, the Techarena is back! This year’s event, themed "Becoming the Best in the World," will bring together 12,000 business leaders, entrepreneurs, investors, and policy-makers from across the globe. Whether you’re looking to gain strategic insights, discover emerging technologies, secure investment, or network with industry leaders, this event offers tailored opportunities for everyone.</p>
+      <a href="https://strawberryarena.se/en/events/music-show/techarena-2025-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+
+
+  <div id="event8-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Disney On Ice</h3>
+      <img src="images/event8.jpg" alt="Event 8">
+      <p>Disney On Ice is coming to Hovet January 10-12, 2025! </p>
+      <p>Exciting twists and turns await as Mickey Mouse and his Disney friends embark on a wild ride with unexpected hijinks and magic at every turn when Disney On Ice presents Road Trip Adventures skates into Stockholm! Embark on a wild ride to favorite Disney destinations while visiting he world from the rooftops of London, traveling to the sun soaked Motunui, joining a safari to the Pride Lands, and playing at a larger-than-life carnival with Woody and Forky.</p>
+      <a href="https://hovetarena.se/en/events/music-show/disney-on-ice-2/" target="_blank">More Info / Buy Tickets</a>
+    </div>
+  </div>
+
+  
+</section>
+
+
+
+
+<section id="Eat_Drink">
+  <h2>Eat & Drink</h2>
+  <div class="slider-controls">
+    <button class="prev-slide">&lt;</button>
+    <button class="next-slide">&gt;</button>
+  </div>
+  <div class="attractions-slider">
+    <!-- Slider Controls -->
+    
+    <div class="slider-images">
+      <!-- Slide 1 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#eat_drink1-modal">
+          <img src="images/eat_drink1.jpg" alt="Eat_Drink 1">
+          <h4>Nobel Cuisine</h4>
+          <p>SEK 250.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink2-modal">
+          <img src="images/eat_drink2.jpg" alt="Eat_Drink 2">
+          <h4>Swedish Cousine</h4>
+          <p>SEK 199.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink3-modal">
+          <img src="images/eat_drink3.jpg" alt="Eat_Drink 3">
+          <h4>Asian Flavours</h4>
+          <p>SEK 150.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink4-modal">
+          <img src="images/eat_drink4.jpeg" alt="Eat_Drink 4">
+          <h4>ArkDes Museum Lunch</h4>
+          <p>SEK 150.00 / person normally</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slider-slide">
+        <div class="attraction-card" data-modal-target="#eat_drink5-modal">
+          <img src="images/eat_drink5.jpg" alt="Eat_Drink 5">
+          <h4>Mother India</h4>
+          <p>SEK 135.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink6-modal">
+          <img src="images/eat_drink6.jpeg" alt="Eat_Drink 6">
+          <h4>Fika at Kaffekoppen</h4>
+          <p>SEK 100.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink7-modal">
+          <img src="images/eat_drink7.jpg" alt="Eat_Drink 7">
+          <h4>Spanish tapas</h4>
+          <p>SEK 300.00 / person normally</p>
+        </div>
+        <div class="attraction-card" data-modal-target="#eat_drink8-modal">
+          <img src="images/eat_drink8.jpeg" alt="Eat_Drink 8">
+          <h4>Flippin’ Burgers</h4>
+          <p>SEK 200.00 / person normally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bullet controls under the slider -->
+  <div class="bullet-controls">
+    <span class="bullet active"></span>
+    <span class="bullet"></span>
+  </div>
+
+  <!-- Modals -->
+  <div id="eat_drink1-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Nobel Cuisine</h3>
+      <img src="images/eat_drink1.jpg" alt="Eat_Drink1">
+    
+      <p>The Nobel banquet is without question the most famous dinner party in Sweden. On the 10th of December each year, Nobel Prize laureates, prominent scientists, politicians, dignitaries, and royals gather for an elegant three-course dinner out of the ordinary.</p>
+      <p>Would you like a taste of the Nobel banquet? Here are the Stockholm restaurants and cafés run by chefs that have worked at the prestigious event.</p>
+      <ul>
+        <p>Michelin-starred chef Sayan Isaksson has prepared the Nobel banquet on two occasions, in 2015 and 2016. He has run several celebrated restaurants, like Esperanto and Imouto. In 2021 he opened his latest venture, Nour. Named after his daughter, the fine-dining restaurant mixes Swedish and Japanese cuisine. Guests have two fixed menus to choose from, a large and a small.</p>
+        <li>
+          <a href="https://restaurantnour.se/sv/#sectionid-3" target="_blank">Nour Restaurant / More info</a>
+        </li>
+        <p>Malin Söderström made history as the first female head chef of the Nobel Dinner in 2011. Her starter was a lobster dish, and you can experience her love of seafood at The Fishery. You’ll find the lunch restaurant at Brunkebergs Torg in central Stockholm and the Ringen shopping mall on Södermalm. She also runs the lunch restaurant at Moderna Muséet – MoMu Mat.</p>
+        <li>
+          <a href="https://www.thefishery.se/">The Fishery/ More info</a>
+        </li>
+        <p>The food at Markus Aujalay's colorfully decorated Tegelbacken, located just across the water from the Swedish parliament, is unpretentious yet full of flavor. Only serving small-to-medium-sized dishes, the idea is to let guests try more than just one or two dishes. Markus Aujalay was in charge of the 2005 Nobel menu together with Håkan Thörnström and Torsten Körling.</p>
+        <li>
+          <a href="https://tegelbacken.com/startsida/" target="_blank">Tegelbacken / More info</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+
+  <div id="eat_drink2-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Swedish Cousine</h3>
+      <img src="images/eat_drink2.jpg" alt="Eat_Drink 2">
+      <p>“Where should we go for meatballs?” is a question that I probably should add to my personal FAQ. My go-to answer, without a doubt, is Riche on Östermalm. Whether or not meatballs are a Swedish invention is one thing (probably not, actually), but how they should be served is not up for debate. Riche serves them by the book, without frizzles; creamy gravy, potato, lingonberries, and pickled cucumber.</p>
+      <a href="https://riche.se/fenix/?gad_source=1&gclid=CjwKCAiAm-67BhBlEiwAEVftNneiieXdv47QG4Np3GKSVoZZD64PQuxLJnMdITY0qWWy1RpZvIE4WhoCkhMQAvD_BwE" target="_blank">More Info</a>
+    </div>
+  </div>
+
+
+  <div id="eat_drink3-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Ai Ramen</h3>
+      <img src="images/eat_drink3.jpg" alt="Eat_Drink 3">
+      <p>One of Stockholm's best ramen bars, Ai Ramen has served mouth-watering noodle bowls, donburi, and saké since 2015. And in that time it has become one of Södermalm's most popular hang-out spots, either to grab a lunch, dinner or an evening drink.</p>
+      <a href="https://www.airamen.se/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+  <div id="eat_drink4-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>ArkDes Museum Lunch</h3>
+      <img src="images/eat_drink4.jpeg" alt="Eat_Drink 4">
+      <p>Arkdes in Skeppsholmen is a national center for architecture and design, with several interesting exhibitions and activities, a café, and a special library with unique collections. The admission is free of charge, and here's something to explore for any age group!</p>
+      <a href="https://arkdes.se/en/visit/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+  <div id="eat_drink5-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Mother India</h3>
+      <img src="images/eat_drink5.jpg" alt="Eat_Drink 5">
+      <p>Mother India on Upplandsgatan is one of the classics among Stockholm's Indian restaurants and has served high-class Indian food to hungry Stockholmers and tourists for many years. In recent years, the family business has undergone a generational change and is today run by two childhood friends. Together, they have created perhaps the city's coolest Indian restaurant with a unique mix of tradition and innovation. The family recipe has been modernized, the premises have been completely renovated and guests can now enjoy Indian fine dining. </p>
+      <a href="https://www.motherindia.se/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+
+  <div id="eat_drink6-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Fika at Kaffekoppen, Gamla Stan</h3>
+      <img src="images/eat_drink6.jpeg" alt="Eat_Drink 6">
+      <p>The most famous Swedish tradition has to be “fika”, which is essentially a convivial coffee break in which to drink coffee (obviously), chat with friends and eat cake. What’s not to like? We took our first fika on the most photographed square in Stockholm: Stortorget in Gamla Stan (the city’s old town). You’ll see it in all the guidebooks, but it’s no less Insta-worthy for being touristy. Kaffekoppen is on the western side of the square, and does a delicious line in specialty coffees (the mochaccino came in a bowl topped with whipped cream and chocolate sauce) and moreish cakes. We tried the rhubarb one, which was slightly like a crumble but firmer, and came with vanilla custard. Probably best to share if you have dinner plans later!
+      </p>
+      <a href="https://cafekaffekoppen.se/sv/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+  <div id="eat_drink7-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Spanish tapas</h3>
+      <img src="images/eat_drink7.jpg" alt="Eat_Drink 7">
+      <p>A thoroughly buzzing, split-level tapas bar in Norrmalm, Bar Nombre has everything you need for a good night out. We ordered a fantastic bottle of Rioja Crianza from Viña Pedrosa and tucked into plate after plate: pan con tomate, giant shrimps on toast with lardo, croquettes filled with a jamón ragù, boards laden with Spanish charcuterie and Manchego… the list went on. The atmosphere feels like a party without being too loud..</p>
+      <a href="https://www.barnombre.se/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+
+  <div id="eat_drink8-modal" class="attraction-modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3>Flippin’ Burgers</h3>
+      <img src="images/eat_drink8.jpeg" alt="Eat_Drink 8">
+      <p>With its old-school American diner interior and music, Flippin’ Burgers is as much about the atmosphere as it is about the burgers. But it’s fitting into the trend of catering to vegans and vegetarians, too: all but one of the burgers are available not only with beef patties but also with Beyond Meat patties. Flippin’ Burgers’ meat comes from small-scale local slaughterhouses, Skärgårdskött and Gröna Gårdar, ensuring that the beef is as ethically produced as possible. Bread comes from Magnus Johansson Bakery in Hammarby Sjöstad, while drinks come from small, Stockholm-based suppliers as well. I loved the “Cricket” burger topped with cream cheese, jalapenos and caramelised onions..</p>
+      <a href="https://flippinburgers.se/" target="_blank">More Info</a>
+    </div>
+  </div>
+
+
+  
+</section>
+
+
+
+<section id="Contact" class="contact-section">
+  <div class="contact-overlay">
+    <h2>Get in Touch with Us</h2>
+    <p>Your next adventure starts with a single message. We're here to make it happen.</p>
+    <button id="contact-button" onclick="location.href='mailto:elli.corleone@yahoo.com?subject=Contact Us Inquiry'">
+      Contact Us
+    </button>
+  </div>
+</section>
+
+
+
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Branding -->
+      <div class="footer-branding">
+        <h1>Stockholm</h1>
+        <p>The Nordic Venecia</p>
+      </div>
+  
+      <!-- Navigation -->
+      <div class="footer-nav">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#" id="about-modal-trigger">About Us</a></li>
+          <li><a href="mailto:elli.corleone@yahoo.com">Contact</a></p></li>
+        </ul>
+      </div>
+      
+
+
+<!-- About Us Modal -->
+<div id="about-modal" class="attraction-modal" >
+  <div class="modal-content">
+    <button class="modal-close" id="about-modal-close">&times;</button>
+    <h2>About Us</h2>
+    <p>
+      I am a last-year university student, and this website is created solely as a project for my university. 
+      It is not intended for commercial use or public release. Thank you for understanding!
+    </p>
+  </div>
+</div>
+
+
+<!-- Privacy Policy Modal -->
+<div id="privacy-policy-modal" class="attraction-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="close-privacy-policy">&times;</button>
+    <h3>Privacy Policy</h3>
+    <p>
+      Your privacy is important to us. This privacy policy explains how we collect, use, and protect your information.
+    </p>
+    <ul>
+      <li>We collect minimal data to provide better services.</li>
+      <li>Your data will never be shared without your consent.</li>
+      <li>You have the right to access and delete your information.</li>
+    </ul>
+    <p>
+      For more information, please contact us at <a href="mailto:elli.corleone@yahoo.com">elli.corleone@yahoo.com</a>.
+    </p>
+  </div>
+</div>
+  
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:elli.corleone@yahoo.com">elli.corleone@yahoo.com</a></p>
+        <p>Phone: +46 707 886 496</p>
+        <p>Address: Mäster Samuelsgattan, Stockholm</p>
+      </div>
+  
+      <!-- Social Media -->
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      
+      <p>&copy; 2025 Stockholm City. All Rights Reserved. | <a href="#" id="privacy-policy-link">Privacy Policy</a></p>
+    </div>
+
+
+
   </footer>
+  
 
 
 <script src="script.js"></script>
